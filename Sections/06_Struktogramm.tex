@@ -1,0 +1,119 @@
+\section{Struktogramm}
+
+Nassi–Shneiderman Diagramme/Struktgramme werden verwendet, um eine Funktion eines Programmes zu visualisieren. Dafür gibt es verschiedene Grafische Elemente, welche man dann direkt in Quellcode übertragen kann.\newline
+Ein Beispiel:\newline
+
+\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_bsp.png}
+
+\subsection{Sinnbilder in C}
+
+Es gibt verschiedene Sinnbilder für verschiedene Funktionen in C. Sie können auch ineinander verschachtelt werden:
+
+\subsubsection{Prozessblöcke}
+
+Eine Anweisung, die nach einem Block abgearbeitet wird, ist in einem Rechteck unter dem Block. \newline
+
+\noindent
+\begin{minipage}{0.2\columnwidth} 
+\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_Prozessbloecke.png}
+\end{minipage}
+\begin{minipage}{0.8\columnwidth} 
+\begin{lstlisting}[language = c]
+    anweisung1;
+    anweisung2;
+    anweisungn;
+\end{lstlisting}
+\end{minipage}
+
+\subsubsection{Decision / if}
+
+Eine Decision wird wie folgt realisiert. Wenn kein else verwendet wird kann der Block leer sein.\newline
+
+\noindent
+\begin{minipage}{0.4\columnwidth} 
+\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_decision.png}
+\end{minipage}
+\begin{minipage}{0.6\columnwidth} 
+\begin{lstlisting}[language = c]
+if(bedingung)
+{
+    Anweisungsblock 1;
+}
+else
+{
+    Anweisungsblock 2;
+}
+\end{lstlisting}
+\end{minipage}
+
+\subsubsection{switch}
+
+\noindent
+\begin{minipage}{0.6\columnwidth} 
+\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_switch.png}
+\end{minipage}
+\begin{minipage}{0.4\columnwidth} 
+\begin{lstlisting}[language = c]
+switch(variable)
+{
+    case 1:
+        block1;
+        break;
+    case 2:
+        block2;
+        break;
+    case n:
+        blockn;
+        break;
+    default:
+        blocksonst;
+        break;
+}
+\end{lstlisting}
+\end{minipage}
+
+\subsubsection{for}
+
+\noindent
+\begin{minipage}{0.6\columnwidth} 
+\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_for.png}
+\end{minipage}
+\begin{minipage}{0.4\columnwidth} 
+\begin{lstlisting}[language = c]
+for(int i = Startwert;i< Endwert;i+=1)
+{
+    anweisungsblock1;
+}
+\end{lstlisting}
+\end{minipage}
+
+\subsubsection{while}
+
+\noindent
+\begin{minipage}{0.4\columnwidth} 
+\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_while.png}
+\end{minipage}
+\begin{minipage}{0.6\columnwidth} 
+\begin{lstlisting}[language = c]
+while(bedingung)
+{
+    anweisungsblock1;
+}
+\end{lstlisting}
+\end{minipage}
+
+\subsubsection{do while}
+
+\noindent
+\begin{minipage}{0.4\columnwidth} 
+\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_doWhile.png}
+\end{minipage}
+\begin{minipage}{0.6\columnwidth} 
+\begin{lstlisting}[language = c]
+do
+{
+    anweisungsblock1;
+}
+while(bedingung);
+\end{lstlisting}
+\end{minipage}

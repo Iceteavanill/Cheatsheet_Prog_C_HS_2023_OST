@@ -1,0 +1,118 @@
+\section{Funktionen aus  C Standard-Library}
+\subsubsection{Overview String Funktionen}
+Es gibt Funktionen aus der String Library welche mit 'str' beginnen. Diese erwarten eine NULL terminierte Zeichenkette. Ein anderer Typ Funktionen beginnt mit 'mem'. Bei diesen muss die Länge mitgegeben werden.\newline
+Ebenso gibt es für die String Funktionen einen Typ, der alle Zeichen bearbeitet oder der nur n Zeichen bearbeitet.
+
+\subsection{scanf}
+
+Header \textless stdio.h\textgreater wird verwendet.\newline
+Scanf wird verwendet, um Eingaben des Nutzers entgegenzunehmen.\newline
+General Syntax : scanf("\%\textless Format Spzifizierung\textgreater", \textless Pointer zu Speicher \textgreater);\newline
+Es können auch mehrere eingaben aufs mal gemacht werden.
+
+\subsubsection{Formatspezifierer}
+
+Die Eingaben können verschieden interpretiert werden. Es gibt verschiedene Möglichkeiten dazu. Sie fangen immer mit einem \% begonnen.\newline
+
+\begin{center}
+    \begin{tabular}{|c|c|c|} \hline  
+          \%c& \%s& \%d\\ \hline  
+        ein char& eine Zeichenkette& Signed int\\
+ & &in dezimaldarstellung\\\hline\hline
+ \%u& \%o&\%x\\\hline
+ unsigned int& unsigned int&unsigned int\\
+  in dez darstellung& in okt darstellung&in hex darstellung\\\hline\hline
+ \%f& \%lf&\\\hline
+ float& double&\\ \hline
+    \end{tabular}
+\end{center}
+Mit vorangestelltem l oder ll gibt man Datentypen länger als int an, z.B. \%llu für einen unsigned long long in Dezimaldarstellung.\newline
+Mit vorangestelltem h oder hh gibt man Datentypen kürzer als int an, z.B. \%hhx für einen unsigned char in Hexadezimaldarstellung.\newline
+
+Wenn Zahlen zwischen \% und Formatspezifierer geschrieben werden dann kann die Länge limitiert werden\newline
+bsp:
+
+\begin{lstlisting}[language = c]
+#include <stdio.h>
+<correct type> var;
+scanf("%3d",&var); //liest eine maximal 3 ziffern lange signed Dezimalzahl ein.
+scanf("%lf %lf",&var,&var); //liest 2 double ein.
+\end{lstlisting}
+
+
+\subsection{printf}
+
+Header \textless stdio.h\textgreater wird verwendet.\newline
+Printf wird zur Ausgabe von Text per Konsole verwendet.\newline
+General Syntax :\newline scanf(" text \%\textless Format Spzifizierung\textgreater text", \textless wert \textgreater);
+
+\subsubsection{Formatspezifierer}
+
+Auch hier gibt es Format Spezifizierer, Sie sind etwas anders als die von scanf. Die wichtigsten (die in der Tabelle)sind dieselben wie bei scanf. Der einzige Unterschied im jetzigen kontext ist das für double auch nur \%f ohne l verwendet werden kann. Bei scanf \textbf{muss} es \%lf sein.\newline
+Eine Zahl zwischen\% und Formatspezifierer bewirkt das \textbf{mindestens} die Anzahl Stellen ausgegeben wird. Mit einem "." und einer Zahl kann die Präzision spezifiziert werden. Standart bei Float \& double ist 6.
+
+
+\begin{lstlisting}[language = c]
+#include <stdio.h>
+double Var 12.91;
+printf("Test %1.1lf",var); // Ausgabe : "Test 12.9"
+printf("%5.3f",var); // Ausgabe : "   12.910"
+\end{lstlisting}
+
+\subsection{memcomp}
+
+Header string.h wird verwendet.\newline
+Vergleicht, ob 2 Speicherstellen gleich sind und returnt 0 wenn diese gleich sind.
+\begin{lstlisting}[language = c]
+int memcmp(const void *str1, const void *str2, size_t n)
+\end{lstlisting}
+Es darf nie mehr überprüft werden als das 1. Array gross ist. Das 2. Array darf grösser sein als das erste.
+
+\subsection{strncpy}
+
+Header string.h wird verwendet.\newline
+\begin{lstlisting}[language = c]
+char* strncpy(char* dest, const char* src, size_t n)
+\end{lstlisting}
+Kopiert n Zeichen zur Destination. strcpy macht das selbe aber kopiert alle Zeichen. 
+
+\subsection{strncat}
+
+Header string.h wird verwendet.\newline
+\begin{lstlisting}[language = c]
+char* strncat(char* dest, const char* src, size_t n);
+\end{lstlisting}
+Hängt Zeichen n von String src an dest(mit Nullterminierung) an. strcat macht dasselbe aber kopiert alle Zeichen. 
+
+\subsection{strncmp}
+
+Header string.h wird verwendet.\newline
+\begin{lstlisting}[language = c]
+int strncmp(const char* s1, const char* s2, size_t n);
+\end{lstlisting}
+Vergleicht länge n von s1 und s2. Returnt 0 wenn beide gleich sind. strcpy macht dasselbe aber vergleicht alle Zeichen. 
+
+\subsection{strlen}
+
+Header string.h wird verwendet.\newline
+\begin{lstlisting}[language = c]
+size_t strlen(const char* s);
+\end{lstlisting}
+Bestimmt die Länge des Strings. 
+
+\subsection{Mem Funktionen}
+Es gibt einige Mem funktionen die nützlich sein können
+\begin{lstlisting}[language = c]
+#include <string.h>
+// Speicherbereich kopieren
+void* memcpy(void* dest, const void* src, size_t n);
+// Speicherbereich verschieben
+void* memmove(void* dest, const void* src, size_t n);
+// Speicherbereiche vergleichen
+int memcmp(const void* s1, const void* s2, size_t n);
+// Erstes Auftreten von Zeichen c in Speicherbereich s suchen
+void* memchr(const void* s, int c, size_t n);
+// Speicherbereich mit Wert belegen
+void* memset(void* s, int c, size_t n);
+\end{lstlisting}
+

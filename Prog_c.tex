@@ -1,0 +1,112 @@
+\documentclass[fontsize=8pt, a4paper, fleqn, landscape, DIV=calc]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{hyperref}%links im pdf zu Sections
+
+%Layout
+\usepackage{multicol, geometry, xcolor}
+\geometry{margin=1cm}
+\parindent 0pt
+\pagestyle{empty}
+\newlength{\breite}
+\setlength{\breite}{0.5pt}
+\setlength{\columnseprule}{\breite}
+
+
+\usepackage{qrcode}
+
+%Mathematik-Pakete
+\usepackage{mathtools}
+\allowdisplaybreaks %Seitenumbruch in align-Umgebung erlauben
+
+\usepackage{enumitem}%Itemise 
+
+%Display Code
+\usepackage{listings}
+\definecolor{codeGreen}{RGB}{106,178,82}
+%\definecolor{backgroundcolor}{RGB}{235,230,239}
+\definecolor{backgroundcolor}{RGB}{255,255,255}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backgroundcolor},
+    commentstyle=\color{blue},
+    keywordstyle=\color{codeGreen},
+    numberstyle=\tiny\color{black},
+    stringstyle=\color{olive},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=none,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+
+% Farbe der Boxen für Titel / Untertitel
+\definecolor{section}{RGB}{148,0,255}
+\definecolor{subsection}{RGB}{220,173,255}
+\definecolor{titlecolor}{RGB}{255,255,255}
+\definecolor{sectionecolor}{RGB}{0,0,0}
+
+% section color box
+\setkomafont{section}{\mysection}%
+\newcommand{\mysection}[1]{%
+	\Large\sffamily%
+	\setlength{\fboxsep}{0cm}%already boxed
+	\colorbox{section}{%
+		\begin{minipage}{\linewidth}
+			\vspace*{2pt}%Space before
+			\leftskip2pt %Space left
+			\rightskip\leftskip %Space right
+			{\color{titlecolor} #1}%
+			\vspace*{1pt}%Space after
+		\end{minipage}
+}}
+
+% subsection color box
+\setkomafont{subsection}{\mysubsection}
+\newcommand{\mysubsection}[1]{%
+	\Large\sffamily%
+	\setlength{\fboxsep}{0cm}%already boxed
+	\colorbox{subsection}{%
+		\begin{minipage}{\linewidth}%
+			\vspace*{2pt}%Space before
+			\leftskip2pt %Space left
+			\rightskip\leftskip %Space right
+			{\color{sectionecolor} #1}
+			\vspace*{1pt}%Space after
+		\end{minipage}%
+}}
+
+%Informationen für den Befehl maketitel
+\title{Prog C}
+\subtitle{HS 2023, Prof. Dr. Christian Werner}
+\author{Fabian Steiner, \today}
+\date{{\small V1.3.0, Vorlage von Simone Stitz}}
+
+\begin{document}
+	\begin{multicols*}{3}
+		\maketitle
+  
+        \begin{center}
+            \quad
+            \qrcode[height=1cm]{https://github.com/Iceteavanill}
+            \qquad    
+        \end{center}
+        
+        \input{Sections/01_Grundlagen}
+        \input{Sections/02_Zahlentypen}
+        \input{Sections/03_Funktionen_aus_C-Standart}
+        \input{Sections/04_Steuerstrukturen}
+        \input{Sections/05_Compiler}
+        \input{Sections/06_Struktogramm}
+        \input{Sections/07_Beispiele}
+        
+	\end{multicols*}	
+\end{document}

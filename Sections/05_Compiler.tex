@@ -1,0 +1,89 @@
+\section{Compiler}
+Der Compiler übersetzt den Quellcode zu Machinecode welcher durch das Zielsystem ausführbar ist.
+\subsection{Molularisierung}
+
+Der gesamte Code wird auf mehrere Module aufgeteilt, um die Übersichtlichkeit und Wiederverwendbarkeit zu verbessern. Ein Modul besteht in der Regel aus einer .h- und einer .c-Datei.\newline
+Die Schnittstelle des Moduls wird in der .h-Datei (Header) definiert und dokumentiert. Sie enthält: Prototypen für alle Funktionen welche die Schnittstelle nach aussen bilden, Dokumentation wie diese Funktionen benutzt werden, structs, enums, unions, typedef, Präprozessormakros. Die Implementationen sind in der .c Datei
+
+\subsubsection{Information hiding}
+
+Information hiding bedeutet nur so viele Informationen nach Aussen geben wie nötig. Daher globale Variablen sparsam verwenden. Diese Strategie macht Code sicherer und weniger Fehleranfällig.
+
+\subsubsection{Richtiges Inkludieren}
+
+\begin{lstlisting}[language = c]
+#include "eigenesModul.h"//eigenes Modul
+#include <stdio.h>//standartlibrary
+\end{lstlisting}
+
+
+Um mehrfachincludes zu verhindern, gibt es sogenannte Includeguards
+\begin{lstlisting}[language = c]
+#ifndef switch_h
+#define switch_h
+... //implementation
+#endif
+
+#pragma once//moderne Variante
+\end{lstlisting}
+
+\subsection{Build Prozess}
+
+Der Build Prozess erzeugt ein ausführbares Programm und besteht wesentlich aus :
+\begin{itemize}[itemsep=1pt, parsep=0pt]
+    \item jede .c-Datei compilieren (erzeugt .o Dateien)
+    \item jede erzeugte .o-Datei linken
+\end{itemize}
+
+
+\subsection{Präprozessor}
+
+Der Präprozessor kann einfache Textersetzung machen und so z.B. konstanten einsetzen.\newline
+Wichtige makros sind dabei:
+\begin{lstlisting}[language = c]
+#define ALT NEU //ersetzt ALT durch NEU
+#include "Datei" //Fuegt Inhalt aus Datei an die aktuelle Position ein
+#include <Datei> //inkludiert Standartlibrary Datei
+#ifdef Marke #endif
+#ifndef Marke #endif //Prueft, ob Marke definiert / nicht definiert ist.
+#error Nachricht //Bricht den Compile-Vorgang mit Nachricht ab
+#define QUAD(a) a*a //Ersetzt alle QUAD(a) mit a*a(a ist eine Variabel) Ein beispiel einer Praeprozessormakrofunktion 
+\end{lstlisting}
+
+Allerdings sind solche Präprozessormakrofunktionen sehr fehleranfällig da sie nur Textersetzung machen.
+
+\subsection{inline}
+
+Das Schlüsselwort inline ermöglicht es dem Compiler, den Funktionsaufruf komplett wegzuoptimieren. Es gibt jedoch keine Garantie, dass er dies auch tut! Es wird häufig zusammen mit static verwendet.\newline
+\begin{lstlisting}[language = c]
+#include <stdio.h>
+static inline int quad(int a) {
+    return a * a;
+}
+int main() {
+    int a;
+    scanf("%d", &a);
+    printf("Quadrat von %d ist %d.\n", a, quad(a));
+    return 0;
+}
+\end{lstlisting}
+Das Beispiel hat die selbe Funktion wie die des Präprozessors, allerdings ohne Potenzial für undefined behaviour.
+
+\subsection{Anwendung des compilers}
+
+Es wird angenommen das clang verwendet wird:\newline
+
+Ein beispielhafter compilvorgang wäre:\newline
+clang -Wall -o test test.c
+
+\subsubsection{Clang flags}
+\begin{itemize}[itemsep=1pt, parsep=0pt]
+    \item \textbf{-Wall} Alle Fehler und Warnungen ausgeben.
+    \item \textbf{\textless{}File.c/.o/.a\textgreater{}} bindet die Datei in den compile Prozess ein.
+    \item \textbf{-o} \textless{}File\textgreater{}Spezifiziert der Name der Ausgabedatei und macht diese ausführbar.
+    \item \textbf{-c} \textless{}File.c\textgreater{}Kompiliert die  .c Files zu .o Files. Diese sind noch nicht gelinkt. Diese müssen noch mit -o gelinkt werden.
+    \item \textbf{-O3} Optimiert den Code auf Geschwindigkeit.
+    \item \textbf{-Os} Optimiert den Code auf Grösse.
+    \item \textbf{-I} \textless{}pfad\textgreater{} Pfad zu externen Libraries welche inkludiert werden sollen
+    \item \textbf{-lm} falls math.h verwendet wird, muss zusätzlicher Machinencode verlinkt werden
+\end{itemize} 
