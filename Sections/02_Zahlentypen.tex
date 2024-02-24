@@ -39,10 +39,10 @@ Allerdings sind diese auf dem Zielsystem möglicherweise nicht sehr effizient, d
 Gleitpunnktzahlen speichern Zahlen wissenschaftlicher Schreibweise. Dabei treten allerdings fast immer Rundungsfehler auf(\textbf{nie auf Gleichheit testen}) und brauchen viel Rechenleistung. Sie können aber auch Werte wie $\pm$ inf, $\pm$ 0, NaN(not a number) darstellen.\newline
 Speicherzusammensetzung, Standardisierter float (IEEE 754): 
 \begin{center}
-    \begin{tabular}{|c|c|c|c|} \hline  
-          & Sign  & Exponent & Mantisse \\ \hline  
-        float & 1 & 8 & 23\\ \hline  
-        double & 1 & 11 & 52 \\ \hline   
+    \begin{tabular}{|c|c|c|c|c|} \hline  
+        (in bit) & Sign  & Exponent & Mantisse & total\\ \hline  
+        float & 1 & 8 & 23 & 32 bits\\ \hline  
+        double & 1 & 11 & 52 & 64 bits\\ \hline   
     \end{tabular}
 \end{center}
 
@@ -55,7 +55,7 @@ Wenn eine Zahl mit einem Koma (z.B: 12.91) definiert wird, ist sie automatisch e
 Mit einem Enum(im code immer klein schreiben) kann ein Aufzählungstyp erreicht werden für z.B. für state machines. Generelle Syntax:\newline
 enum type-name \{item1 = value1, item2 = value2, …\};\newline
 Die Value Deklaration kann ausgelassen werden. Der Compiler vergibt von 0 auf aufzählend automatisch Werte. Es kann strategisch eine Zahl dazwischen gesetzt werden um gewisse numerische Zahlen zu Erhalten.\newline
-Wenn man ein Enum verwendet will, muss das Schlüsselwort "Enum" immer mitgeschrieben werden. Mit einer Typendeklaration kann das vereinfacht werden. 
+Wenn man ein Enum verwenden will, muss das Schlüsselwort \say{Enum} immer mitgeschrieben werden. Mit einer Typendeklaration kann das vereinfacht werden. 
 
 \begin{lstlisting}[language = c]
 enum groesse {LOW,MEDIUM,HIGH};//deklaration
@@ -140,8 +140,9 @@ int x = (int)flZahl; //explizit: x hat den Wert 41, Nachkommastellen werden abge
 
 \begin{itemize}[itemsep=1pt, parsep=0pt]
     \item \textbf{global} \newline nicht in eine Funktion deklariert, 0 initialisiert, Laufzeit des Programms, immer sichtbar
-    \item \textbf{lokal} \newline in Funktion deklariert, nicht initialisiert, Laufzeit der Funktion, nur in der Funktion Sichtbar, auch wenn eine neue Funktion aufgerufen wird.
-    \item \textbf{static} variablen sind dabei eine Ausnahme(siehe Static$\rightarrow$ Typ-attribute).
+    \item \textbf{lokal} \newline in Funktion deklariert, nicht initialisiert, Laufzeit der Funktion, nur in der Funktion Sichtbar, auch wenn eine neue Funktion aufgerufen wird
+    \item \textbf{static} variablen sind dabei eine Ausnahme\\
+    (siehe Static$\rightarrow$ \ref{static})
 \end{itemize}
 
 \subsection{Arrays}
@@ -216,7 +217,7 @@ int alpha[3][4] = {
 Ebenso könnte man alpha so initialisieren:
 
 \begin{lstlisting}[language = c]
-int alpha[3][4] = {1, 3, 5, 7, 2, 4, 6, 8, 3, 5, 7, 9};
+int alpha[3][4] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2};
 \end{lstlisting}
 
 \subsection{Pointer und Arrays}
@@ -269,7 +270,7 @@ void foo(const int* const ptr);//der int wert und Pointer kann nicht mehr verseh
 
 Volatile signalisiert dem Compiler das sich die Variable auch ausserhalb der normalen Programmausführung ändern kann. Einsatz bei Hardware naher Programmierung und multithreading.
 
-\subsubsection{static}
+\subsubsection{static} \label{static}
 
 Static kann eine Variabel und eine Funktion sein, diese haben aber jeweils verschiedene Bedeutungen:
 \begin{itemize}
@@ -293,7 +294,7 @@ struct structname
     typ2 name2;
     typ3 name3;
     typn namen;
-}
+};
 \end{lstlisting}
 \end{minipage}
 \begin{minipage}{0.5\columnwidth}
@@ -305,7 +306,7 @@ struct adresse
     char strasse[20];
     int hausnummer;
     char land[3];
-}
+};
 \end{lstlisting}
 \end{minipage}
 

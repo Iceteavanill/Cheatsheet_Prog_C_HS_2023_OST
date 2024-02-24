@@ -19,7 +19,7 @@ int main()
 
 int speicher[10];//Array definition
 
-for(int i = 0;i < 10,i++)
+for(int i = 0;i < 10;i++)
 {
     speicher[i] = 1;//Das Array wird mit 1 gefuellt
 }
@@ -40,6 +40,9 @@ for(int i = 0;i < 3,i++)
     }
 }//Nach diesen for loops ist das Array gleich gebliben.
 \end{lstlisting}
+
+\vfill\null
+\columnbreak	
 
 \subsection{Iterativ vs rekursiv}
 
@@ -96,12 +99,33 @@ unsigned int fibIt(unsigned int in)
 
 \end{lstlisting}
 
+\vfill\null
+\columnbreak	
 
+\subsection{GGT}
 
-\section{emotional support meme}
+Die Folgende Funktion nimmt 2 Zahlen (m,n) entgegen und gibt den GGT zurück.
 
-Für den Fall das während der Prüfung emotionaler Support gefragt ist ein meme:
-\begin{center}
-\includegraphics[width=0.5\columnwidth]{Pictures/emotional_support_meme.png}
-    
-\end{center}
+\begin{lstlisting}[language = c]
+unsigned int func(unsigned int m, unsigned int n)
+{
+    unsigned int r;
+    unsigned int h;
+    do
+    {
+        if (m < n)
+        {
+            h = m;
+            m = n;
+            n = h;
+        }
+        r = m % n;
+        if (r != 0)
+        {
+            m = n;
+            n = r;
+        }
+    } while (r!=0);
+    return n;
+}
+\end{lstlisting}

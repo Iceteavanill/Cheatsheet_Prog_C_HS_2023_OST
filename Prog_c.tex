@@ -2,30 +2,29 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 
-\usepackage{hyperref}%links im pdf zu Sections
+\usepackage{hyperref}%links in the pdf
+\hypersetup{pdfborder = {0 0 0}}
 
 %Layout
-\usepackage{multicol, geometry, xcolor}
+\usepackage{multicol, geometry, xcolor, tcolorbox, fancyhdr ,lastpage, dirtytalk}
+% mehrere spalten, page layout, farben, farbboxen der titel, header/footer, linkt to last page, make the use of "" easier
 \geometry{margin=1cm}
 \parindent 0pt
-\pagestyle{empty}
+\pagestyle{fancy}
 \newlength{\breite}
 \setlength{\breite}{0.5pt}
 \setlength{\columnseprule}{\breite}
+\usepackage{qrcode}%QR code im Titel
 
-
-\usepackage{qrcode}
-
-%Mathematik-Pakete
+%Math stuff
 \usepackage{mathtools}
-\allowdisplaybreaks %Seitenumbruch in align-Umgebung erlauben
+\allowdisplaybreaks %allow display breaks in align
 
 \usepackage{enumitem}%Itemise 
 
 %Display Code
 \usepackage{listings}
 \definecolor{codeGreen}{RGB}{106,178,82}
-%\definecolor{backgroundcolor}{RGB}{235,230,239}
 \definecolor{backgroundcolor}{RGB}{255,255,255}
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backgroundcolor},
@@ -47,59 +46,59 @@
 }
 \lstset{style=mystyle}
 
+% color for  Titel / sub Titel
+\definecolor{sectionbarcolor}{RGB}{148,0,255}
+\definecolor{subsectionbarcolor}{RGB}{220,173,255}
+\definecolor{sectiontextcolor}{RGB}{255,255,255}
+\definecolor{subsectiontextcolor}{RGB}{0,0,0}
 
-% Farbe der Boxen für Titel / Untertitel
-\definecolor{section}{RGB}{148,0,255}
-\definecolor{subsection}{RGB}{220,173,255}
-\definecolor{titlecolor}{RGB}{255,255,255}
-\definecolor{sectionecolor}{RGB}{0,0,0}
-
-% section color box
-\setkomafont{section}{\mysection}%
+%section color box
+\setkomafont{section}{\mysection}
 \newcommand{\mysection}[1]{%
-	\Large\sffamily%
-	\setlength{\fboxsep}{0cm}%already boxed
-	\colorbox{section}{%
-		\begin{minipage}{\linewidth}
-			\vspace*{2pt}%Space before
-			\leftskip2pt %Space left
-			\rightskip\leftskip %Space right
-			{\color{titlecolor} #1}%
-			\vspace*{1pt}%Space after
-		\end{minipage}
-}}
+    \Large%
+    \begin{tcolorbox}[colback=sectionbarcolor, coltext=sectiontextcolor, beforeafter skip=2pt, boxrule=0pt, arc=2pt, left=0pt, right=0pt, top=0pt, bottom=0pt]%
+        {#1}%
+    \end{tcolorbox}%
+}
 
-% subsection color box
+%subsection color box
 \setkomafont{subsection}{\mysubsection}
 \newcommand{\mysubsection}[1]{%
-	\Large\sffamily%
-	\setlength{\fboxsep}{0cm}%already boxed
-	\colorbox{subsection}{%
-		\begin{minipage}{\linewidth}%
-			\vspace*{2pt}%Space before
-			\leftskip2pt %Space left
-			\rightskip\leftskip %Space right
-			{\color{sectionecolor} #1}
-			\vspace*{1pt}%Space after
-		\end{minipage}%
-}}
+    \Large%
+    \begin{tcolorbox}[colback=subsectionbarcolor, coltext=subsectiontextcolor, beforeafter skip=2pt, boxrule=0pt, arc=2pt, left=0pt, right=0pt, top=0pt, bottom=0pt]%
+        {#1}%
+    \end{tcolorbox}%
+}
 
-%Informationen für den Befehl maketitel
-\title{Prog C}
+%Information for maketitle
+\title{\vspace{-1cm}Prog C}
 \subtitle{HS 2023, Prof. Dr. Christian Werner}
 \author{Fabian Steiner, \today}
-\date{{\small V1.3.0, Vorlage von Simone Stitz}}
+\date{{\small V2.0.0}}
+
+%Header & footer
+\fancyhf{}
+\setlength{\footskip}{0.5cm}
+\fancyfoot[L]{\thepage{} / \pageref{LastPage}}
+\fancyfoot[R]{Prog C}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0pt}
 
 \begin{document}
 	\begin{multicols*}{3}
-		\maketitle
-  
-        \begin{center}
-            \quad
-            \qrcode[height=1cm]{https://github.com/Iceteavanill}
-            \qquad    
-        \end{center}
+        \begin{minipage}{0.75\columnwidth}
+		      \maketitle
+        \end{minipage}
+        \begin{minipage}{0.2\columnwidth}
+            \begin{center}
+                \quad
+                \qrcode[height=1cm]{https://github.com/Iceteavanill}
+                \qquad    
+            \end{center}
+        \end{minipage}
         
+        \thispagestyle{fancy}%Pagenumber for first page
+
         \input{Sections/01_Grundlagen}
         \input{Sections/02_Zahlentypen}
         \input{Sections/03_Funktionen_aus_C-Standart}
@@ -107,6 +106,7 @@
         \input{Sections/05_Compiler}
         \input{Sections/06_Struktogramm}
         \input{Sections/07_Beispiele}
+        \input{Sections/08_mathH}
         
 	\end{multicols*}	
 \end{document}

@@ -27,7 +27,7 @@ int main() //Programmaufruf
         ;//mache so lange bis Bedingung falsch
     } while(<Bedingung>);
 
-    for(int i = 0;<Bedingung>,i++)// int I wird nur einmal initialisiert und i wird immer nach dem schleifendurchgang initialisiert
+    for(int i = 0;<Bedingung>;i++)// int I wird nur einmal initialisiert und i wird immer nach dem schleifendurchgang initialisiert
     {
         ;//mache so lange bis Bedingung falsch
     }
@@ -54,7 +54,7 @@ int main() //Programmaufruf
     \item \textbf{break} \newline (do)while, for, switch abbrechen.
     \item \textbf{continue} \newline bei (do)while und for in den nächsten Schleifendurchgang springen.
     \item \textbf{return} \newline aus Funktion an aufrufende Stelle zurückspringen
-    \item \textbf{goto} \newline innerhalb einer Funktion an eine Marke (Label) springen(sind nie gerechtfertigt verwendet)
+    \item \textbf{goto} \newline innerhalb einer Funktion an eine Marke (Label) springen(sind selten gerechtfertigt verwendet)
 \end{itemize}
 
 \subsubsection{GoTo}
@@ -156,6 +156,9 @@ int main()
     \item \textbf{Achtung}:jede Instanz einer rekursiv gerufenen Funktion besitzt ihre eigenen, unabhängigen Variablenkopien. Ausnahme: static-deklarierte lokalen Variablen
     \item Indirekte Rekursion ist unbedingt zu vermeiden Diese kommt z.B. zustande, wenn sich zwei oder mehrere Funktionen wechselseitig oder im Kreis aufrufen
 \end{itemize}
+
+\vfill\null
+\columnbreak
 
 \subsubsection{Beispiel}
 
