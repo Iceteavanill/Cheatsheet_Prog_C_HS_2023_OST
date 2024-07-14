@@ -1,0 +1,1 @@
+void foo(const int* const ptr);//der int Wert und Pointer kann nicht mehr versehentlich veraendert werden.

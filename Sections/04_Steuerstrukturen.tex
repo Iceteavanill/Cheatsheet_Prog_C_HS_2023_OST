@@ -1,120 +1,62 @@
 \newpage
 \section{Steuerstrukturen}
+
 \subsection{basics}
-Die Wichtigen Steuerstrukturen in einer Auflistung(mit korrekter Syntax) 
 
-\begin{lstlisting}[language = c]
-#include <stdio.h>//inkludiert stdio.h(brauchts hier nicht)
-int main() //Programmaufruf
-{
-    if(<Bedingung>)
-    {
-        ;//Anweisung wenn wahr
-    }
-    else
-    {
-        ; //Anweisung wenn Falsch
-    }
+Die Wichtigen Steuerstrukturen in einer Auflistung.
 
-    while(<Bedingung>)//wenn Anweisung nicht wahr zu beginn wird Schleife nicht betreten
-    {
-        ;//mache so lange bis Bedingung falsch
-        continue;//springe in den naechsten Schleifendurchlauf
-    }
-
-    do//mindestens 1 Durchlauf gibt es
-    {
-        ;//mache so lange bis Bedingung falsch
-    } while(<Bedingung>);
-
-    for(int i = 0;<Bedingung>;i++)// int I wird nur einmal initialisiert und i wird immer nach dem schleifendurchgang initialisiert
-    {
-        ;//mache so lange bis Bedingung falsch
-    }
-
-    case(<variable>)//springe basierend auf der Variable
-    {
-        case 0://springt hier wen var = 0
-            break;//ohne break wuerde switch hier weiterlaufen
-        case 1 ... 4 : //range von 1-4
-            break;
-        default://sonst trifft nichts zu
-            break;
-    }
-
-    return <wert>;//Return einer Funktion
-    return 0;//Programm korrent durchlaufen
-    return 1;//programm nicht korrekt durchlaufen Fehlercode 1    
-}
-\end{lstlisting}
+\lstinputlisting{code/steuerstrukturen_basics.c}
 
 \subsubsection{Sprunganweisungen}
 
 \begin{itemize}[itemsep=1pt, parsep=0pt]
-    \item \textbf{break} \newline (do)while, for, switch abbrechen.
-    \item \textbf{continue} \newline bei (do)while und for in den nächsten Schleifendurchgang springen.
-    \item \textbf{return} \newline aus Funktion an aufrufende Stelle zurückspringen
-    \item \textbf{goto} \newline innerhalb einer Funktion an eine Marke (Label) springen(sind selten gerechtfertigt verwendet)
+    \item \textbf{break} \\ (do)while, for, switch abbrechen.
+    \item \textbf{continue} \\ bei (do)while und for in den nächsten Schleifendurchgang springen.
+    \item \textbf{return} \\ aus Funktion an aufrufende Stelle zurückspringen
+    \item \textbf{goto} \\ innerhalb einer Funktion an eine Marke (Label) springen (sind selten gerechtfertigt verwendet)
 \end{itemize}
 
 \subsubsection{GoTo}
 
-Ein mit einem goto kann man \textbf{innerhalb einer Funktion} zu einer Marke Springen. Das kann sehr komfortabel sein, führt aber fast immer zu sehr schwer lesbaren Code. Möglichst nie verwenden.\newline
+Ein mit einem goto kann man \textbf{innerhalb einer Funktion} zu einer Marke Springen. Das kann sehr komfortabel sein, führt aber fast immer zu sehr schwer lesbaren Code. Möglichst nie verwenden.\\
 Ein Beispiel:
 
-\begin{lstlisting}[language = c]
-#include <stdio.h>
-
-int func()
-{
-    printf("Do func Stuff\n");
-inFunc: //hindert den normalen Programmablauf nicht
-    return 0;
-}
-
-int main()
-{
-    printf("Anfang von main\n");
-    func();
-    goto hell;//Sprung zur marke hell
-    printf("Sollte nie ausgegeben werden\n");
-hell: //Marken sind so indentiert
-    printf("spring hierher\n");
-
-    goto inFunc;//Funktioniert nicht! da out of scope
-    
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting{code/goto.c}
 
 \subsection{Funktionen}
 
-Funktionen ist eine Zusammenfassung von Anweisungen, die ein und Ausgabewerte haben kann.\newline
-\textless{}returnType\textgreater{} \textless{}functionName\textgreater{} (\textless{}paramType1\textgreater{} \textless{}paramName1\textgreater{}, \textless{}paramType2\textgreater{} \textless{}paramName2\textgreater{}, … );\newline
-Wenn eine Funktion aufgerufen wird, müssen immer \textbf{alle} Parameter mitgegeben werden.\newline
+Funktionen sind eine Zusammenfassung von Anweisungen, welche ein und Ausgabewerte haben können.\\
+Deklaration:\\
+\verb|<returnType> <functionName>(<paramType1> <paramName1>,|\\
+\verb| <paramType2> <paramName2>, …);|\\
+Wenn eine Funktion aufgerufen wird, müssen immer \textbf{alle} Parameter mitgegeben werden.\\
 
 \subsubsection{Funktionsprototyp}
 
-Funktionen werden typischerweise weit oben im Quelltext definiert, als Funktionsprototyp. Der Funktionsprototyp legt das Interface der Funktion fest (Meist in .h Files festgelegt). Er \textbf{muss} verwendet werden, wenn die Funktion vor Definition verwendet werden möchte.
+Funktionen werden typischerweise weit oben im Quelltext definiert, als Funktionsprototyp. 
+Der Funktionsprototyp legt das Interface der Funktion fest. 
+Er \textbf{muss} verwendet werden, wenn die Funktion vor Definition verwendet werden möchte.
 
 \begin{lstlisting}[language = c]
 int myFunc(int input1, int input2,...);//Funktionsprototyp
 int myfunc(int input1)//direkte definition
 {
-    Return 0;
+    return 0;
 }
 \end{lstlisting}
 Der Parametername kann zwischen Prototyp und Definition unterschiedlich sein, ist aber nicht empfohlen.
 
 \subsubsection{Void}
 
-Void als Returntyp heisst das kein Wert zurückgegeben wird.\newline
-Return darf verwendet werden, aber es darf kein Wert hinterlegt werden.\newline
-Void als Parameter heisst das kein Parameter übergeben werden kann. Es kann auch weggelassen werden.
+Void als Returntyp heisst das kein Wert zurückgegeben wird.\\
+Return darf verwendet werden, aber es darf kein Wert hinterlegt werden.\\
+Void als Parameter heisst das kein Parameter übergeben werden kann.
+
+\nextcol
 
 \subsection{Pointer auf Funktionen}
 
-Pointer können auch auf Funktionen definiert werden zum z.B. zur Laufzeit dynamische Programmabläufe zu realisieren.\newline
+Pointer können auch auf Funktionen definiert werden zum z.B. zur Laufzeit dynamische Programmabläufe zu realisieren.\\
 Syntax: int (*name)(int,int);
 
 \begin{itemize}[itemsep=1pt, parsep=0pt]
@@ -126,23 +68,13 @@ Syntax: int (*name)(int,int);
 
 bsp:
 
-\begin{lstlisting}[language = c]
-int compare (int a, int b) { ... }
-int main() 
-{
-    int (*ptr)(int, int);//pointer definieren
-    ptr = &compare; // Zuweisen der Funktionsadresse
-    ptr = compare; // tut dasselbe, d.h. man darf das & bei Funktionen auch weglassen
-    printf("Vergleich liefert: ", (*ptr)(37, 12)); // Funktionspointer wird dereferenziert
-}
-\end{lstlisting}
+\lstinputlisting{code/pointer_to_func.c}
 
 \subsection{Funktionen : Iteration und Rekursion}
 
 \begin{itemize}[itemsep=1pt, parsep=0pt]
     \item Rekursion: eine Funktion ruft sich selbst auf.
     \item Iteration: Algorithmus enthält Abschnitte, die innerhalb einer Ausführung mehrfach durchlaufen werden (Schleife)
-    \item Jeder rekursive Algorithmus kann auch iterativ formuliert werden
     \item Die rekursive Form kann eleganter sein, ist aber praktisch immer ineffizienter als die iterative Form.
     \item Das Abbruchkriterium ist bei beiden Formen zentral
 \end{itemize}
@@ -157,8 +89,7 @@ int main()
     \item Indirekte Rekursion ist unbedingt zu vermeiden Diese kommt z.B. zustande, wenn sich zwei oder mehrere Funktionen wechselseitig oder im Kreis aufrufen
 \end{itemize}
 
-\vfill\null
-\columnbreak
+\nextcol
 
 \subsubsection{Beispiel}
 
@@ -177,8 +108,6 @@ uint64 fak(uint64 n)
     }
     return val;
 }
-
-
 \end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{0.5\columnwidth}
@@ -199,9 +128,55 @@ uint64 fak(uint64 n)
 \end{minipage}
 \subsection{Operatoren}
 
-Operatoren haben eine Priorität, welche aussagt in welcher Reihenfolge die Befehle ausgeführt werden. Haben Operatoren dieselbe Priorität besagt die Assoziativität in welcher Reihenfolge ausgewertet wird.\newline
+Operatoren haben eine Priorität, welche aussagt in welcher Reihenfolge die Befehle ausgeführt werden. 
+Von höchster Priorität zu niedrigster.\\
+Haben Operatoren dieselbe Priorität besagt die Assoziativität in welcher Reihenfolge ausgewertet wird.\\
 
-\includegraphics[width=1\columnwidth]{Pictures/Operators.png}
+
+{\tabcolsep=0.05cm
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|l|l|c|}
+\hline
+\textbf{Priorität}  & \textbf{Symbol}         & \textbf{Bedeutung}          & \textbf{Assoziativität} \\ \hline
+\multirow{5}{*}{15} & (Postfix)  $++\quad--$  & Postfix-Ink/dekrement       & \multirow{5}{*}{L - R}  \\
+                    & ()                      & Funktionsaufruf             &                         \\
+                    & $[\hspace{0.5em}]$      & Indexierung                 &                         \\
+                    & $->\quad.$              & Elementzugriff              &                         \\
+                    & (Typ)\{init list\}      & compound literal (C99)      &                         \\ \hline
+\multirow{7}{*}{14} & $++\quad--$(Präfix)     & Präfix-Ink/dekrement        & \multirow{7}{*}{R - L}  \\
+                    & $+\quad-$ (Vorzeichen)  & Vorzeichen                  &                         \\
+                    & $!\quad\sim$            & logisches / bitweises NICHT &                         \\
+                    & \&                      & Adresse                     &                         \\
+                    & *                       & Zeigerdereferenzierung      &                         \\
+                    & (Typ)                   & Typumwandlung(cast)         &                         \\
+                    & sizeof                  & Speichergröße               &                         \\ \hline
+\multirow{2}{*}{13} & $*\quad/$               & Multiplikation, division    & \multirow{2}{*}{L - R}  \\
+                    & \%                      & Modulo                      &                         \\ \hline
+12                  & $\quad-$                & Addition, Subtraktion       & L - R                   \\ \hline
+11                  & \textless{}\textless{}  & Links/rechts-Shift          & L - R                   \\ \hline
+10                  & $<\quad<=\quad>=\quad>$ & kleiner / grösser (gleich)  & L - R                   \\ \hline
+9                   & $!=\quad==$             & (un)gleich                  & L - R                   \\ \hline
+8                   & \&                      & bitweises UND               & L - R                   \\ \hline
+7                   & \textasciicircum{}      & bitweises exklusives ODER   & L - R                   \\ \hline
+6                   & $\vert$                 & bitweises ODER              & L - R                   \\ \hline
+5                   & \&\&                    & logisches UND               & L - R                   \\ \hline
+4                   & $\vert\vert$            & logisches ODER              & L - R                   \\ \hline
+3                   & ?:                      & Bedingung /mini if          & R - L                   \\ \hline
+\multirow{3}{*}{2}  & =                       & Zuweisung                   & \multirow{3}{*}{R - L}  \\
+                    & 
+                    \begin{tabular}{ccccc} 
+                        *= & /= & \%= & += & -=\\ 
+                    \end{tabular} 
+                    &
+                    \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Zusammengesetzte\\Zuweisungen\end{tabular}}&\\ 
+                    &
+                    \begin{tabular}{ccccc}
+                        \&= & \textasciicircum{}= & $\vert$= & \textless{}\textless{}= & \textgreater{}\textgreater{}= \\ 
+                    \end{tabular} &  & \\ \hline
+1                    & ,                      & Komma-Operator              & L - R                  \\ \hline
+\end{tabular}%
+}
+} 
 
 \subsubsection{Sizeof}
 
@@ -219,6 +194,5 @@ Der ternäre Operator braucht 3 Argumente. Je nach Wahrheitswert wird, nach link
 <Bedinging>?"wahr":"unwahr";
 
 return myInt==3?5:0;//Wenn myInt ist 3, wird 5 dem return Operator uebergeben. Ansonsten wird 0 uebergeben
-
 \end{lstlisting}
 

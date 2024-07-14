@@ -3,12 +3,12 @@
 
 \subsection{Trivia}
 
-Designer : Dennis Ritchie \newline
+Designer : Dennis Ritchie \\
 Erstveröffentlichung : 1972
 
 \subsection{Rechnersystem system}
 
-Grundaufbau eines Rechnersystem
+Grundaufbau eines Rechnersystem:
 
 \includegraphics[width=1\columnwidth]{Pictures/PC_system_basicssystem.png}
 
@@ -27,7 +27,7 @@ Die CPU kann $(2^{\text{Bitgrösse des Busses }} \cdot \text{ 8 bits})$ Ansteuer
 
 \subsubsection{Binär direkt}
 
-Binär kann mittels 2er Potenz berechnet werden(geht auch bei Kommazahlen)\newline
+Binär kann mittels 2er Potenz berechnet werden(geht auch bei Kommazahlen)\\
 
 \noindent
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -48,21 +48,72 @@ Bitmuster: & 1 & 0 & 1 & 0 & 0 & 1 & 1 & 0 \\
 
 \subsubsection{Binär Zweierkomplement}
 
-Das Zweierkomplement erlaubt das Darstellen von negativen Zahlen. Das MSB hat dabei den üblichen Wert negativ.\newline 
+Das Zweierkomplement erlaubt das Darstellen von negativen Zahlen. Das MSB hat dabei den üblichen Wert negativ.\\ 
 Um von Binär zum Zweierkomplement zu kommen, muss man alle Bits einer binär zahl invertieren und 1 addieren
 
 \[
 \overbrace{0110}^\text{6} 
-\underbrace{\rightarrow}_\text{invert} 
+\underbrace{\rightarrow}_\text{invert}
 \overbrace{1001}^\text{-7} 
 \underbrace{\rightarrow}_{+1}
 \overbrace{1010}^\text{-6} 
 \]
 \subsubsection{ASCII}
 
-\textbf{A}merican \textbf{S}tandard \textbf{C}ode for \textbf{I}nformation \textbf{I}nterchange standardisiert die Repräsentation eines Bytes als Char. Da ASCII ein 7-bit Code ist, ist das MSB immer 0.
+\textbf{A}merican \textbf{S}tandard \textbf{C}ode for \textbf{I}nformation \textbf{I}nterchange standardisiert die Repräsentation eines Bytes als Char. 
+Da ASCII ein 7-bit Code ist, ist das MSB immer 0.\\
 
-\includegraphics[width=1\columnwidth]{Pictures/ASCII_Table.png}
+{\tabcolsep=0.05cm
+\renewcommand*{\arraystretch}{0.5}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{cccc|cccc|cccc}
+{\color[HTML]{9400FF} Dec} & Hex & {\color[HTML]{9400FF} Bin} & Char & {\color[HTML]{9400FF} Dec} & Hex & {\color[HTML]{9400FF} Bin} & Char & {\color[HTML]{9400FF} Dec} & Hex & {\color[HTML]{9400FF} Bin} & Char \\ \hline
+{\color[HTML]{9400FF} 0} & 0 & {\color[HTML]{9400FF} 0} & {[}NULL{]} & {\color[HTML]{9400FF} 43} & 2B & {\color[HTML]{9400FF} 101011} & + & {\color[HTML]{9400FF} 86} & 56 & {\color[HTML]{9400FF} 1010110} & V \\
+{\color[HTML]{9400FF} 1} & 1 & {\color[HTML]{9400FF} 1} & {[}start of heading{]} & {\color[HTML]{9400FF} 44} & 2C & {\color[HTML]{9400FF} 101100} & , & {\color[HTML]{9400FF} 87} & 57 & {\color[HTML]{9400FF} 1010111} & W \\
+{\color[HTML]{9400FF} 2} & 2 & {\color[HTML]{9400FF} 10} & {[}start of text{]} & {\color[HTML]{9400FF} 45} & 2D & {\color[HTML]{9400FF} 101101} & - & {\color[HTML]{9400FF} 88} & 58 & {\color[HTML]{9400FF} 1011000} & X \\
+{\color[HTML]{9400FF} 3} & 3 & {\color[HTML]{9400FF} 11} & {[}end of text{]} & {\color[HTML]{9400FF} 46} & 2E & {\color[HTML]{9400FF} 101110} & . & {\color[HTML]{9400FF} 89} & 59 & {\color[HTML]{9400FF} 1011001} & Y \\
+{\color[HTML]{9400FF} 4} & 4 & {\color[HTML]{9400FF} 100} & {[}end of transmission{]} & {\color[HTML]{9400FF} 47} & 2F & {\color[HTML]{9400FF} 101111} & / & {\color[HTML]{9400FF} 90} & 5A & {\color[HTML]{9400FF} 1011010} & Z \\
+{\color[HTML]{9400FF} 5} & 5 & {\color[HTML]{9400FF} 101} & {[}enquiry{]} & {\color[HTML]{9400FF} 48} & 30 & {\color[HTML]{9400FF} 110000} & 0 & {\color[HTML]{9400FF} 91} & 5B & {\color[HTML]{9400FF} 1011011} & {[} \\
+{\color[HTML]{9400FF} 6} & 6 & {\color[HTML]{9400FF} 110} & {[}acknowledge{]} & {\color[HTML]{9400FF} 49} & 31 & {\color[HTML]{9400FF} 110001} & 1 & {\color[HTML]{9400FF} 92} & 5C & {\color[HTML]{9400FF} 1011100} & \textbackslash{} \\
+{\color[HTML]{9400FF} 7} & 7 & {\color[HTML]{9400FF} 111} & {[}bell{]} & {\color[HTML]{9400FF} 50} & 32 & {\color[HTML]{9400FF} 110010} & 2 & {\color[HTML]{9400FF} 93} & 5D & {\color[HTML]{9400FF} 1011101} & {]} \\
+{\color[HTML]{9400FF} 8} & 8 & {\color[HTML]{9400FF} 1000} & {[}backspace{]} & {\color[HTML]{9400FF} 51} & 33 & {\color[HTML]{9400FF} 110011} & 3 & {\color[HTML]{9400FF} 94} & 5E & {\color[HTML]{9400FF} 1011110} & \textasciicircum{} \\
+{\color[HTML]{9400FF} 9} & 9 & {\color[HTML]{9400FF} 1001} & {[}horizontal tab{]} & {\color[HTML]{9400FF} 52} & 34 & {\color[HTML]{9400FF} 110100} & 4 & {\color[HTML]{9400FF} 95} & 5F & {\color[HTML]{9400FF} 1011111} & \_ \\
+{\color[HTML]{9400FF} 10} & A & {\color[HTML]{9400FF} 1010} & {[}line feed{]} & {\color[HTML]{9400FF} 53} & 35 & {\color[HTML]{9400FF} 110101} & 5 & {\color[HTML]{9400FF} 96} & 60 & {\color[HTML]{9400FF} 1100000} & ` \\
+{\color[HTML]{9400FF} 11} & B & {\color[HTML]{9400FF} 1011} & {[}vertical tab{]} & {\color[HTML]{9400FF} 54} & 36 & {\color[HTML]{9400FF} 110110} & 6 & {\color[HTML]{9400FF} 97} & 61 & {\color[HTML]{9400FF} 1100001} & a \\
+{\color[HTML]{9400FF} 12} & C & {\color[HTML]{9400FF} 1100} & {[}form feed{]} & {\color[HTML]{9400FF} 55} & 37 & {\color[HTML]{9400FF} 110111} & 7 & {\color[HTML]{9400FF} 98} & 62 & {\color[HTML]{9400FF} 1100010} & b \\
+{\color[HTML]{9400FF} 13} & D & {\color[HTML]{9400FF} 1101} & {[}carriage return{]} & {\color[HTML]{9400FF} 56} & 38 & {\color[HTML]{9400FF} 111000} & 8 & {\color[HTML]{9400FF} 99} & 63 & {\color[HTML]{9400FF} 1100011} & c \\
+{\color[HTML]{9400FF} 14} & E & {\color[HTML]{9400FF} 1110} & {[}shift out{]} & {\color[HTML]{9400FF} 57} & 39 & {\color[HTML]{9400FF} 111001} & 9 & {\color[HTML]{9400FF} 100} & 64 & {\color[HTML]{9400FF} 1100100} & d \\
+{\color[HTML]{9400FF} 15} & F & {\color[HTML]{9400FF} 1111} & {[}shift in{]} & {\color[HTML]{9400FF} 58} & 3A & {\color[HTML]{9400FF} 111010} & : & {\color[HTML]{9400FF} 101} & 65 & {\color[HTML]{9400FF} 1100101} & e \\
+{\color[HTML]{9400FF} 16} & 10 & {\color[HTML]{9400FF} 10000} & {[}data link escape{]} & {\color[HTML]{9400FF} 59} & 3B & {\color[HTML]{9400FF} 111011} & ; & {\color[HTML]{9400FF} 102} & 66 & {\color[HTML]{9400FF} 1100110} & f \\
+{\color[HTML]{9400FF} 17} & 11 & {\color[HTML]{9400FF} 10001} & {[}device control 1{]} & {\color[HTML]{9400FF} 60} & 3C & {\color[HTML]{9400FF} 111100} & \textless{} & {\color[HTML]{9400FF} 103} & 67 & {\color[HTML]{9400FF} 1100111} & g \\
+{\color[HTML]{9400FF} 18} & 12 & {\color[HTML]{9400FF} 10010} & {[}device control 2{]} & {\color[HTML]{9400FF} 61} & 3D & {\color[HTML]{9400FF} 111101} & = & {\color[HTML]{9400FF} 104} & 68 & {\color[HTML]{9400FF} 1101000} & h \\
+{\color[HTML]{9400FF} 19} & 13 & {\color[HTML]{9400FF} 10011} & {[}device control 3{]} & {\color[HTML]{9400FF} 62} & 3E & {\color[HTML]{9400FF} 111110} & \textgreater{} & {\color[HTML]{9400FF} 105} & 69 & {\color[HTML]{9400FF} 1101001} & i \\
+{\color[HTML]{9400FF} 20} & 14 & {\color[HTML]{9400FF} 10100} & {[}device control 4{]} & {\color[HTML]{9400FF} 63} & 3F & {\color[HTML]{9400FF} 111111} & ? & {\color[HTML]{9400FF} 106} & 6A & {\color[HTML]{9400FF} 1101010} & j \\
+{\color[HTML]{9400FF} 21} & 15 & {\color[HTML]{9400FF} 10101} & {[}neg. Acknowledge{]} & {\color[HTML]{9400FF} 64} & 40 & {\color[HTML]{9400FF} 1000000} & @ & {\color[HTML]{9400FF} 107} & 6B & {\color[HTML]{9400FF} 1101011} & k \\
+{\color[HTML]{9400FF} 22} & 16 & {\color[HTML]{9400FF} 10110} & {[}synchonous idle{]} & {\color[HTML]{9400FF} 65} & 41 & {\color[HTML]{9400FF} 1000001} & A & {\color[HTML]{9400FF} 108} & 6C & {\color[HTML]{9400FF} 1101100} & l \\
+{\color[HTML]{9400FF} 23} & 17 & {\color[HTML]{9400FF} 10111} & {[}end of trans.block{]} & {\color[HTML]{9400FF} 66} & 42 & {\color[HTML]{9400FF} 1000010} & B & {\color[HTML]{9400FF} 109} & 6D & {\color[HTML]{9400FF} 1101101} & m \\
+{\color[HTML]{9400FF} 24} & 18 & {\color[HTML]{9400FF} 11000} & {[}cancel{]} & {\color[HTML]{9400FF} 67} & 43 & {\color[HTML]{9400FF} 1000011} & C & {\color[HTML]{9400FF} 110} & 6E & {\color[HTML]{9400FF} 1101110} & n \\
+{\color[HTML]{9400FF} 25} & 19 & {\color[HTML]{9400FF} 11001} & {[}end of medium{]} & {\color[HTML]{9400FF} 68} & 44 & {\color[HTML]{9400FF} 1000100} & D & {\color[HTML]{9400FF} 111} & 6F & {\color[HTML]{9400FF} 1101111} & o \\
+{\color[HTML]{9400FF} 26} & 1A & {\color[HTML]{9400FF} 11010} & {[}substitute{]} & {\color[HTML]{9400FF} 69} & 45 & {\color[HTML]{9400FF} 1000101} & E & {\color[HTML]{9400FF} 112} & 70 & {\color[HTML]{9400FF} 1110000} & p \\
+{\color[HTML]{9400FF} 27} & 1B & {\color[HTML]{9400FF} 11011} & {[}escape{]} & {\color[HTML]{9400FF} 70} & 46 & {\color[HTML]{9400FF} 1000110} & F & {\color[HTML]{9400FF} 113} & 71 & {\color[HTML]{9400FF} 1110001} & q \\
+{\color[HTML]{9400FF} 28} & 1C & {\color[HTML]{9400FF} 11100} & {[}file separator{]} & {\color[HTML]{9400FF} 71} & 47 & {\color[HTML]{9400FF} 1000111} & G & {\color[HTML]{9400FF} 114} & 72 & {\color[HTML]{9400FF} 1110010} & r \\
+{\color[HTML]{9400FF} 29} & 1D & {\color[HTML]{9400FF} 11101} & {[}group separator{]} & {\color[HTML]{9400FF} 72} & 48 & {\color[HTML]{9400FF} 1001000} & H & {\color[HTML]{9400FF} 115} & 73 & {\color[HTML]{9400FF} 1110011} & s \\
+{\color[HTML]{9400FF} 30} & 1E & {\color[HTML]{9400FF} 11110} & {[}record separator{]} & {\color[HTML]{9400FF} 73} & 49 & {\color[HTML]{9400FF} 1001001} & I & {\color[HTML]{9400FF} 116} & 74 & {\color[HTML]{9400FF} 1110100} & t \\
+{\color[HTML]{9400FF} 31} & 1F & {\color[HTML]{9400FF} 11111} & {[}unit separator{]} & {\color[HTML]{9400FF} 74} & 4A & {\color[HTML]{9400FF} 1001010} & J & {\color[HTML]{9400FF} 117} & 75 & {\color[HTML]{9400FF} 1110101} & u \\
+{\color[HTML]{9400FF} 32} & 20 & {\color[HTML]{9400FF} 100000} & {[}space{]} & {\color[HTML]{9400FF} 75} & 4B & {\color[HTML]{9400FF} 1001011} & K & {\color[HTML]{9400FF} 118} & 76 & {\color[HTML]{9400FF} 1110110} & v \\
+{\color[HTML]{9400FF} 33} & 21 & {\color[HTML]{9400FF} 100001} & ! & {\color[HTML]{9400FF} 76} & 4C & {\color[HTML]{9400FF} 1001100} & L & {\color[HTML]{9400FF} 119} & 77 & {\color[HTML]{9400FF} 1110111} & w \\
+{\color[HTML]{9400FF} 34} & 22 & {\color[HTML]{9400FF} 100010} & " & {\color[HTML]{9400FF} 77} & 4D & {\color[HTML]{9400FF} 1001101} & M & {\color[HTML]{9400FF} 120} & 78 & {\color[HTML]{9400FF} 1111000} & x \\
+{\color[HTML]{9400FF} 35} & 23 & {\color[HTML]{9400FF} 100011} & \# & {\color[HTML]{9400FF} 78} & 4E & {\color[HTML]{9400FF} 1001110} & N & {\color[HTML]{9400FF} 121} & 79 & {\color[HTML]{9400FF} 1111001} & y \\
+{\color[HTML]{9400FF} 36} & 24 & {\color[HTML]{9400FF} 100100} & \$ & {\color[HTML]{9400FF} 79} & 4F & {\color[HTML]{9400FF} 1001111} & O & {\color[HTML]{9400FF} 122} & 7A & {\color[HTML]{9400FF} 1111010} & z \\
+{\color[HTML]{9400FF} 37} & 25 & {\color[HTML]{9400FF} 100101} & \% & {\color[HTML]{9400FF} 80} & 50 & {\color[HTML]{9400FF} 1010000} & P & {\color[HTML]{9400FF} 123} & 7B & {\color[HTML]{9400FF} 1111011} & \{ \\
+{\color[HTML]{9400FF} 38} & 26 & {\color[HTML]{9400FF} 100110} & \& & {\color[HTML]{9400FF} 81} & 51 & {\color[HTML]{9400FF} 1010001} & Q & {\color[HTML]{9400FF} 124} & 7C & {\color[HTML]{9400FF} 1111100} & $\vert$ \\
+{\color[HTML]{9400FF} 39} & 27 & {\color[HTML]{9400FF} 100111} & ' & {\color[HTML]{9400FF} 82} & 52 & {\color[HTML]{9400FF} 1010010} & R & {\color[HTML]{9400FF} 125} & 7D & {\color[HTML]{9400FF} 1111101} & \} \\
+{\color[HTML]{9400FF} 40} & 28 & {\color[HTML]{9400FF} 101000} & ( & {\color[HTML]{9400FF} 83} & 53 & {\color[HTML]{9400FF} 1010011} & S & {\color[HTML]{9400FF} 126} & 7E & {\color[HTML]{9400FF} 1111110} & $\sim$ \\
+{\color[HTML]{9400FF} 41} & 29 & {\color[HTML]{9400FF} 101001} & ) & {\color[HTML]{9400FF} 84} & 54 & {\color[HTML]{9400FF} 1010100} & T & {\color[HTML]{9400FF} 127} & 7F & {\color[HTML]{9400FF} 1111111} & {[}DEL{]} \\
+{\color[HTML]{9400FF} 42} & 2A & {\color[HTML]{9400FF} 101010} & * & {\color[HTML]{9400FF} 85} & 55 & {\color[HTML]{9400FF} 1010101} & U &  &  &  & 
+\end{tabular}%
+}
+}
 
 \subsubsection{Oktalzahlen}
 
@@ -72,7 +123,7 @@ Oktalzahlen erlauben nur 8 Ziffern (0 - 7). Als Bitmuster brauchen sie nur 3 Bit
 \overbrace{001}^\text{1} 
 \rightarrow 61
 \]
-Schreibweisen: $61_{\text{o}}$, $61_{\text{q}}$, $61_{\text{Oct}}$, 061\newline
+Schreibweisen: $61_{\text{o}}$, $61_{\text{q}}$, $61_{\text{Oct}}$, 061\\
 Typischerweise mit 0 vor Beginn der Zahl.
 
 \subsubsection{Hexadezimal}
@@ -84,12 +135,12 @@ Hexadezimal erlaubt 16 Ziffern(0-9,A-F). Binär stellen 4 Bits eine Hex Zahl dar
 \rightarrow \text{0xC5}
 \]
 
-Schreibweisen: $\text{C5}_{\text{h}}$, C5H, $\text{C5}_{\text{hex}}$, $\text{C5}\$$, 0xC5\newline
+Schreibweisen: $\text{C5}_{\text{h}}$, C5H, $\text{C5}_{\text{hex}}$, $\text{C5}\$$, 0xC5\\
 Typischerweise mit 0x vor Beginn der Zahl.
 
 \subsubsection{Umrechnung beliebiges Zahlensystem zu dezimal}
 
-Die jeweiligen Ziffern stellen jeweils ein Zahlenwert im System:\newline $n^0 \cdot x_1 + n^1 \cdot x_2 + n^2 \cdot x_3 + ....$ wobei n die Zahlenbasis ist.
+Die jeweiligen Ziffern stellen jeweils ein Zahlenwert im System:\\ $n^0 \cdot x_1 + n^1 \cdot x_2 + n^2 \cdot x_3 + ....$ wobei n die Zahlenbasis ist.
 
 \subsubsection{Umrechnung dezimal zu beliebigem Zahlensystem}
 

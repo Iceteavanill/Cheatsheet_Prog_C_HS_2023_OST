@@ -6,7 +6,7 @@
 \hypersetup{pdfborder = {0 0 0}}
 
 %Layout
-\usepackage{multicol, geometry, xcolor, tcolorbox, fancyhdr ,lastpage, dirtytalk}
+\usepackage{multicol, geometry, xcolor, tcolorbox, fancyhdr ,lastpage, dirtytalk, multirow}
 % mehrere spalten, page layout, farben, farbboxen der titel, header/footer, linkt to last page, make the use of "" easier
 \geometry{margin=1cm}
 \parindent 0pt
@@ -27,6 +27,7 @@
 \definecolor{codeGreen}{RGB}{106,178,82}
 \definecolor{backgroundcolor}{RGB}{255,255,255}
 \lstdefinestyle{mystyle}{
+    language = C,
     backgroundcolor=\color{backgroundcolor},
     commentstyle=\color{blue},
     keywordstyle=\color{codeGreen},
@@ -45,6 +46,12 @@
     tabsize=2
 }
 \lstset{style=mystyle}
+
+%automate Columnbreak
+\newcommand{\nextcol}{%
+\vfill\null%
+\columnbreak%
+}
 
 % color for  Titel / sub Titel
 \definecolor{sectionbarcolor}{RGB}{148,0,255}
@@ -74,7 +81,7 @@
 \title{\vspace{-1cm}Prog C}
 \subtitle{HS 2023, Prof. Dr. Christian Werner}
 \author{Fabian Steiner, \today}
-\date{{\small V2.0.0}}
+\date{{\small V2.1.0}}
 
 %Header & footer
 \fancyhf{}
@@ -86,6 +93,7 @@
 
 \begin{document}
 	\begin{multicols*}{3}
+        \raggedcolumns
         \begin{minipage}{0.75\columnwidth}
 		      \maketitle
         \end{minipage}
