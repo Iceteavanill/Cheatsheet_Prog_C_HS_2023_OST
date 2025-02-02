@@ -47,6 +47,16 @@
 }
 \lstset{style=mystyle}
 
+\usepackage{ifthen} % ifthen to let others use this document, based on their setup
+
+\newboolean{svgWorks}
+\setboolean{svgWorks}{true} % false = svg package NOT installed
+
+\ifthenelse{\boolean{svgWorks}}{
+    \usepackage{svg}
+    \svgpath{{svg/}}
+    }{}
+
 %automate Columnbreak
 \newcommand{\nextcol}{%
 \vfill\null%
@@ -81,7 +91,7 @@
 \title{\vspace{-1cm}Prog C}
 \subtitle{HS 2023, Prof. Dr. Christian Werner}
 \author{Fabian Steiner, \today}
-\date{{\small V2.1.0}}
+\date{{\small V2.1.1}}
 
 %Header & footer
 \fancyhf{}

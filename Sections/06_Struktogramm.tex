@@ -3,7 +3,14 @@
 Nassi–Shneiderman Diagramme/Struktgramme werden verwendet, um eine Funktion eines Programmes zu visualisieren. Dafür gibt es verschiedene Grafische Elemente, welche man dann direkt in Quellcode übertragen kann.\\
 Ein Beispiel:\\
 
-\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_bsp.png}
+\begin{center}
+    \ifthenelse{\boolean{svgWorks}}{
+        \includesvg[width = \linewidth, inkscapelatex=false]{svg/Struktogramm_bsp.svg}    
+    }{
+        \includegraphics[width=1\columnwidth]{Pictures/Struktogramm_bsp.png}
+        }
+\end{center}
+
 
 \subsection{Sinnbilder in C}
 
@@ -14,10 +21,16 @@ Es gibt verschiedene Sinnbilder für verschiedene Funktionen in C. Sie können a
 Eine Anweisung, die nach einem Block abgearbeitet wird, ist in einem Rechteck unter dem Block. \\
 
 \noindent
-\begin{minipage}{0.2\columnwidth} 
-    \includegraphics[width=1\columnwidth]{Pictures/Struktogramm_Prozessbloecke.png}
+\begin{minipage}[c]{0.45\columnwidth}
+    \begin{center}
+        \ifthenelse{\boolean{svgWorks}}{
+            \includesvg[width = 0.5\linewidth, inkscapelatex=false]{svg/Struktogramm_Prozessbloecke.svg}    
+        }{
+            \includegraphics[width=1\columnwidth]{Pictures/Struktogramm_Prozessbloecke.png}
+            }
+    \end{center}
 \end{minipage}
-\begin{minipage}{0.75\columnwidth} 
+\begin{minipage}[c]{0.45\columnwidth} 
 \begin{lstlisting}[language = c]
     anweisung1;
     anweisung2;
@@ -30,10 +43,16 @@ Eine Anweisung, die nach einem Block abgearbeitet wird, ist in einem Rechteck un
 Eine Decision wird wie folgt realisiert. Wenn kein else verwendet wird kann der Block leer sein.\\
 
 \noindent
-\begin{minipage}{0.4\columnwidth} 
-\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_decision.png}
+\begin{minipage}[c]{0.6\columnwidth} 
+    \begin{center}
+        \ifthenelse{\boolean{svgWorks}}{
+            \includesvg[width = \linewidth, inkscapelatex=false]{svg/Struktogramm_decision.svg}    
+        }{
+            \includegraphics[width=1\columnwidth]{Pictures/Struktogramm_decision.png}
+            }
+    \end{center}
 \end{minipage}
-\begin{minipage}{0.6\columnwidth} 
+\begin{minipage}[c]{0.4\columnwidth} 
 \begin{lstlisting}[language = c]
 if(bedingung)
 {
@@ -49,8 +68,14 @@ else
 \subsubsection{switch}
 
 \noindent
-\begin{minipage}{0.6\columnwidth} 
-    \includegraphics[width=1\columnwidth]{Pictures/Struktogramm_switch.png}
+\begin{minipage}{0.6\columnwidth}
+    \begin{center}
+        \ifthenelse{\boolean{svgWorks}}{
+            \includesvg[width = \linewidth, inkscapelatex=false]{svg/Struktogramm_switch.svg}    
+        }{
+            \includegraphics[width=1\columnwidth]{Pictures/Struktogramm_switch.png}
+            }
+    \end{center}
 \end{minipage}
 \begin{minipage}{0.3\columnwidth} 
 \begin{lstlisting}[language = c]
@@ -75,8 +100,14 @@ switch(variable)
 \subsubsection{for}
 
 \noindent
-\begin{minipage}{0.6\columnwidth} 
-\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_for.png}
+\begin{minipage}{0.6\columnwidth}
+    \begin{center}
+        \ifthenelse{\boolean{svgWorks}}{
+            \includesvg[width = \linewidth, inkscapelatex=false]{svg/Struktogramm_for.svg}    
+        }{
+            \includegraphics[width=1\columnwidth]{Pictures/Struktogramm_for.png}
+            }
+    \end{center}
 \end{minipage}
 \begin{minipage}{0.4\columnwidth} 
 \begin{lstlisting}[language = c]
@@ -90,8 +121,14 @@ for(int i = Startwert;i< Endwert;i+=1)
 \subsubsection{while}
 
 \noindent
-\begin{minipage}{0.4\columnwidth} 
-\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_while.png}
+\begin{minipage}{0.4\columnwidth}
+    \begin{center}
+        \ifthenelse{\boolean{svgWorks}}{
+            \includesvg[width = \linewidth, inkscapelatex=false]{svg/Struktogramm_while.svg}    
+        }{
+            \includegraphics[width=1\columnwidth]{Pictures/Struktogramm_while.png}
+            }
+    \end{center}
 \end{minipage}
 \begin{minipage}{0.6\columnwidth} 
 \begin{lstlisting}[language = c]
@@ -105,8 +142,14 @@ while(bedingung)
 \subsubsection{do while}
 
 \noindent
-\begin{minipage}{0.4\columnwidth} 
-\includegraphics[width=1\columnwidth]{Pictures/Struktogramm_doWhile.png}
+\begin{minipage}{0.4\columnwidth}
+    \begin{center}
+        \ifthenelse{\boolean{svgWorks}}{
+            \includesvg[width = \linewidth, inkscapelatex=false]{svg/Struktogramm_doWhile.svg}    
+        }{
+            \includegraphics[width=1\columnwidth]{Pictures/Struktogramm_doWhile.png}
+            }
+    \end{center}
 \end{minipage}
 \begin{minipage}{0.6\columnwidth} 
 \begin{lstlisting}[language = c]

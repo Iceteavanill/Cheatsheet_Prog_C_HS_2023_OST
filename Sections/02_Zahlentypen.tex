@@ -114,7 +114,11 @@ Pointer darf man auch mit anderen Pointer vergleichen(==, !=,...).
 Eine Memorymap wird verwendet, um den Zustand von Pointer und Variablen zu signalisieren. 
 Das folgende Beispiel zeigt den Zustand von der Deklaration von \ref{Pointerbasics}.\\
 \begin{center}
-    \includegraphics[width=.5\columnwidth]{Pictures/Pointer_memory_map.png}
+    \ifthenelse{\boolean{svgWorks}}{
+        \includesvg[width = 0.7\linewidth, inkscapelatex=false]{svg/Pointer_Memorymap.svg}    
+    }{
+        \includegraphics[width=.5\columnwidth]{Pictures/Pointer_memory_map.png}
+        }
 \end{center}
 
 \subsection{Deklarieren}

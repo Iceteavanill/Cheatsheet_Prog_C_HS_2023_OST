@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="651.21875"
+   height="382.6875"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="Multiple Branching.svg">
+  <title
+     id="title3794">Multiple Branching</title>
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.0993242"
+     inkscape:cx="147.76861"
+     inkscape:cy="265.27873"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:object-nodes="false"
+     inkscape:snap-smooth-nodes="false"
+     inkscape:snap-nodes="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="false"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:object-paths="true"
+     inkscape:snap-global="true"
+     inkscape:snap-intersection-paths="false"
+     inkscape:snap-object-midpoints="false"
+     inkscape:snap-center="false"
+     inkscape:window-width="1565"
+     inkscape:window-height="827"
+     inkscape:window-x="1596"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Multiple Branching</dc:title>
+        <dc:date>2012-10-08</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Florian Philipp</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:source>http://en.wikipedia.org/wiki/File:Multiple_Branching.svg</dc:source>
+        <dc:relation>http://en.wikipedia.org/wiki/File:Multiple_Branching.jpg</dc:relation>
+        <dc:language>en</dc:language>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>Nassi-Shneiderman</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:description>Nassi-Shneiderman diagram</dc:description>
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title>Ben Honan</dc:title>
+          </cc:Agent>
+        </dc:contributor>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/3.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-20.96875,-36.96875)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985"
+       width="648.78778"
+       height="380.26508"
+       x="22.190739"
+       y="38.1749" />
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="345.14636"
+       y="75.134995"
+       id="text3755"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3757"
+         x="345.14636"
+         y="75.134995">Sub to Determine Wiki-Article</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="430.82739"
+       y="146.12357"
+       id="text3791"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3793"
+         x="430.82739"
+         y="146.12357">Select Favourite Genre</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 670.97852,96.189973 -648.787781,0"
+       id="path3825"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 22.190739,228.30744 648.787781,0"
+       id="path3827"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g3871">
+      <text
+         sodipodi:linespacing="125%"
+         id="text3771"
+         y="211.33879"
+         x="67.177505"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="211.33879"
+           x="67.177505"
+           id="tspan3773"
+           sodipodi:role="line">History</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3831"
+         y="254.43237"
+         x="67.177505"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="254.43237"
+           x="67.177505"
+           id="tspan3833"
+           sodipodi:role="line">Click</tspan><tspan
+           id="tspan3835"
+           y="284.43237"
+           x="67.177505"
+           sodipodi:role="line">History</tspan><tspan
+           id="tspan3837"
+           y="314.43237"
+           x="67.177505"
+           sodipodi:role="line">Link</tspan></text>
+    </g>
+    <g
+       id="g3879"
+       transform="translate(10.83992,0)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text3775"
+         y="211.33879"
+         x="164.44415"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="211.33879"
+           x="164.44415"
+           id="tspan3777"
+           sodipodi:role="line">Science</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3839"
+         y="254.43237"
+         x="164.44415"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="254.43237"
+           x="164.44415"
+           id="tspan3841"
+           sodipodi:role="line">Click</tspan><tspan
+           id="tspan3843"
+           y="284.43237"
+           x="164.44415"
+           sodipodi:role="line">Science</tspan><tspan
+           id="tspan3845"
+           y="314.43237"
+           x="164.44415"
+           sodipodi:role="line">Link</tspan></text>
+    </g>
+    <g
+       id="g3887"
+       transform="translate(1.5258789e-5,0)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text3779"
+         y="211.33879"
+         x="304.44922"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="211.33879"
+           x="304.44922"
+           id="tspan3781"
+           sodipodi:role="line">Geography</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3847"
+         y="254.43237"
+         x="304.44922"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="254.43237"
+           x="304.44922"
+           id="tspan3849"
+           sodipodi:role="line">Click</tspan><tspan
+           id="tspan3851"
+           y="284.43237"
+           x="304.44922"
+           sodipodi:role="line">Geography</tspan><tspan
+           id="tspan3853"
+           y="314.43237"
+           x="304.44922"
+           sodipodi:role="line">Link</tspan></text>
+    </g>
+    <g
+       id="g3916">
+      <text
+         sodipodi:linespacing="125%"
+         id="text3783"
+         y="211.33879"
+         x="580.31769"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="211.33879"
+           x="580.31769"
+           id="tspan3785"
+           sodipodi:role="line">Other</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3855"
+         y="254.43237"
+         x="581.46613"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="254.43237"
+           x="581.46613"
+           id="tspan3857"
+           sodipodi:role="line">Type in</tspan><tspan
+           id="tspan3859"
+           y="284.43237"
+           x="581.46613"
+           sodipodi:role="line">special:random</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3861"
+         y="338.03214"
+         x="580.5755"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="338.03214"
+           x="580.5755"
+           id="tspan3863"
+           sodipodi:role="line">Press Go</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="345.10535"
+       y="402.22482"
+       id="text3865"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3867"
+         x="345.10535"
+         y="402.22482">End</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 22.392792,96.189973 487.41643,228.30744 670.97852,95.443546"
+       id="path3869"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 670.97852,365.6499 -648.787781,0"
+       id="path3925"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 487.8995,227.95779 0,137.69211 0,0"
+       id="path3935"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 233.38509,156.13481 0,209.51509"
+       id="path3937"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 120.06723,123.94017 0,241.70973"
+       id="path3939"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 487.71571,304.9049 183.26281,0"
+       id="path3968"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
