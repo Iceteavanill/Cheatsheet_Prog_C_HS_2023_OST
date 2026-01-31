@@ -1,7 +1,6 @@
 \section{Datentypen}
 
 Datentypen legen fest,
-
 \begin{itemize}[itemsep=1pt, parsep=0pt]
     \item wie lang das Bitmuster an der zugehörigen Speicherstelle ist,
     \item was dieses Bitmuster bedeutet.
@@ -9,27 +8,33 @@ Datentypen legen fest,
 
 \subsection{simple Ganzzahltypen}
 
-\begin{itemize}[itemsep=1pt, parsep=0pt]
-    \item \textbf{char} \\ immer 8 Bit (Als einziger Typ \textbf{IMMER} 1 Byte)
-    \item \textbf{short} \\ für kleine ganzzahlige Werte (mind. 16 Bit)
-    \item \textbf{int} \\ effizienteste Grösse für Prozessor (mind. 16 Bit)
-    \item \textbf{long} \\ für grosse ganze werte (mind. 32 Bit)
-    \item \textbf{long long} \\ für sehr grosse ganze werte (mind. 64 Bit)   
-    \item \textbf{size\_t} \\ mindestens so gross wie die maximale Anzahl Adressen, nie negativ
-\end{itemize}
+\begin{tabular}{ll}
+    \textbf{char}       & immer 8 Bit (Als einziger Typ \textbf{IMMER} 1 Byte)\\
+    \textbf{short}      & für kleine ganzzahlige Werte (mind. 16 Bit)\\
+    \textbf{int}        & effizienteste Grösse für Prozessor (mind. 16 Bit)\\
+    \textbf{long}       & für grosse ganze werte (mind. 32 Bit)\\
+    \textbf{long long}  & für sehr grosse ganze werte (mind. 64 Bit)   \\
+    \textbf{size\_t}    & mindestens so gross wie die maximale Anzahl \\
+                        & Adressen, nie negativ
+\end{tabular}
+\vspace{2mm}
 
-Ganzzahltypen können \textbf{signed} (Vorzeichenbehaftet) oder \textbf{unsigned} sein. Wenn nicht definiert, meist signed ausser Datentyp \textbf{char}, dieser ist nicht standardisiert.\\
-\textbf{Überlauf ist nicht definiertes Verhalten}\\
-Der \textbf{unsigned} Wertebereich befindet sich von 0 bis $2^n -1 $\\
-Der \textbf{signed} Wertebereich (Zweierkomplement) befindet sich von $-2^{n-1}$ bis $2^{n-1} -1 $\\
+Ganzzahltypen können \textbf{signed} (Vorzeichenbehaftet) oder \textbf{unsigned} sein. 
+Wenn nicht definiert, meist signed ausser Datentyp \textbf{char}, dieser ist nicht standardisiert.
+
+\textbf{Überlauf ist nicht definiertes Verhalten}
+
+Der \textbf{unsigned} Wertebereich befindet sich von 0 bis $2^n -1 $
+
+Der \textbf{signed} Wertebereich (Zweierkomplement) befindet sich von $-2^{n-1}$ bis $2^{n-1} -1 $
+
 (n = anzahl bits)
 
 \nextcol
 
 \subsection{Stdint.h}
 
-Stdint stellt vordefinierte Typen zur Verfügung welche Plattform unabhängige feste Grössen haben. z.B. :
-
+\textbf{Stdint} stellt vordefinierte Typen zur Verfügung welche Plattform unabhängige feste Grössen haben. z.B. :
 \begin{itemize}[itemsep=1pt, parsep=0pt]
     \item int8\_t = signed 8 Bit
     \item uint64\_t = unsigned 64 Bit
@@ -37,13 +42,15 @@ Stdint stellt vordefinierte Typen zur Verfügung welche Plattform unabhängige f
 \end{itemize}
 
 Allerdings sind diese auf dem Zielsystem möglicherweise nicht sehr effizient, da sie die native Busbreite über oder unterschreiten. 
-Ein Int ist der effizienteste Datentyp.
+Eine variable mit int Datentyp typischerweise der effizienteste.
 
 \subsection{Gleitpunktzahl}
 
 Gleitpunktzahlen speichern Zahlen wissenschaftlicher Schreibweise. 
-Dabei treten allerdings fast immer Rundungsfehler auf (\textbf{nie auf Gleichheit testen}) und brauchen viel Rechenleistung. 
-Sie können aber auch Werte wie $\pm$ inf, $\pm$ 0, NaN (not a number) darstellen.\\
+Dabei treten allerdings fast immer Rundungsfehler auf.
+Daher \textbf{nie auf Gleichheit testen}, sondern auf einen kleinen Bereich.
+Sie brauchen generell viel brauchen viel Rechenleistung aber sie können auch Werte wie $\pm$ inf, $\pm$ 0, NaN (not a number) darstellen.
+
 Speicherzusammensetzung, Standardisierter float (IEEE 754): 
 \begin{center}
     \begin{tabular}{|c|c|c|c|c|} \hline  
@@ -57,15 +64,15 @@ Wenn eine Zahl mit einem Koma (z.B: 12.91) definiert wird, ist sie automatisch e
 Dieser Effekt kann verwendet werden, um bei eine Mathematischen Berechnung die Genauigkeit zu verbessern, wenn mit Ganzzahltypen gerechnet wird. 
 Wenn eine Zahl implizit als Gleitpunktzahl (Möglichst am Anfang der Rechnung) definiert wird, wird implizit mit einer Gleitpunktzahl weiter gerechnet und am Schluss wieder zu einer Ganzzahl umgewandelt.
 
-\subsection{Enum}
-
-\subsubsection{Aufzählungstyp}
+\subsection{Enum als Aufzählungstyp}
 
 Mit einem Enum (im code immer klein schreiben) kann ein Aufzählungstyp erreicht werden für z.B. für state machines. Generelle Syntax:\\
-\verb|enum type-name {item1 = value1, item2 = value2, …};|\\
-Die Value Deklaration kann ausgelassen werden. 
-Der Compiler vergibt von 0 auf aufzählend automatisch Werte. 
-Es kann strategisch eine Zahl dazwischen gesetzt werden, um gewisse numerische Zahlen zu Erhalten.\\
+\verb|enum type-name {item1 = value1, item2 = value2, …};|
+
+Die Valuedeklaration kann ausgelassen werden. 
+Der Compiler vergibt von 0 aufsteigend automatisch Werte. 
+Es kann strategisch eine Zahl dazwischen gesetzt werden, um gewisse numerische Zahlen zu Erhalten (sehr spezifisch).
+
 Wenn man ein Enum verwenden will, muss das Schlüsselwort \say{Enum} immer mitgeschrieben werden. 
 Mit einer Typendeklaration kann das vereinfacht werden. 
 
@@ -73,25 +80,29 @@ Mit einer Typendeklaration kann das vereinfacht werden.
 
 \nextcol
 
-\subsubsection{Ganzzahkonstanten}
+\subsection{Enum als Ganzzahkonstanten}
 
-Man kann per Enum auch Ganzzahlkonstanten definieren. Sie sind sicherer als ein \verb|#define| und erlauben auch das Definieren von grössen eines Arrays. 
-Definition:
-
+Man kann per Enum auch Ganzzahlkonstanten definieren. 
+Sie sind sicherer als ein \verb|#define| und erlauben auch das Definieren von grössen eines Arrays:
 \lstinputlisting{code/ganzzahl.c}
 
 \subsection{Pointer}\label{Pointerbasics}
 
 Pointer sind Variablen welche eine Speicheradresse enthalten. 
-Sie sind mindestens so gross, dass alle Speicheradressen definiert werden können.\\
-Wenn Pointer Referenziert (Operator : \verb|&|) werden, liest man die Adresse, auf die der Pointer zeigt.\\
-Wenn Pointer dereferenziert (Operator : \verb|*|) werden, liest man den Wert, auf der gezeigt wird.\\ 
-Pointer müssen auch den Variabeltyp, auf den sie Zeigen, definiert bekommen um das Bitmuster auf das sie zeigen Interpretieren zu können. 
-Ausnahme davon sind die \textbf{Voidpointer}. 
+Sie sind mindestens so gross, dass alle Speicheradressen definiert werden können.
+
+Wenn Pointer Referenziert (\textbf{Operator} : \verb|&|) werden, liest man die Adresse, auf die der Pointer zeigt.
+
+Wenn Pointer dereferenziert (\textbf{Operator} : \verb|*|) werden, liest man den Wert, auf der gezeigt wird.
+
+Pointer müssen auch den Variabeltyp, auf den sie Zeigen, definiert bekommen um das Bitmuster auf das sie zeigen Interpretieren zu können.
+Ausnahme davon sind \textbf{Voidpointer}. 
 Ihnen kann jeder Pointertyp übergeben werden. 
-Diese dürfen aber \textbf{nicht} dereferenziert werden.\\
+Diese dürfen aber \textbf{nicht} dereferenziert werden.
+
 Wenn ein Pointer nicht gebraucht wird, muss er \say{\textbf{NULL}} (nicht zwingend numerisch 0) gesetzt werden. 
-Das Dereferenzieren eines NULLpointer  führt zu undefined behaviour.\\
+Das Dereferenzieren eines NULLpointer  führt zu undefined behaviour.
+Daher müssen unbekannte Pointer \textbf{immer} auf NULL geprüft werden vor Verwendung.
 
 \lstinputlisting{code/pointer_basics.c}
 
@@ -104,15 +115,16 @@ Das Dereferenzieren eines NULLpointer  führt zu undefined behaviour.\\
 \end{itemize}
 Auf Pointer darf des weiteren addiert und subtrahiert werden. Ganze zahlen verschieben ihn dabei jeweils um ganze Elemente. 
 Daher kann man nicht zwischen 2 Elemente Zeigen. Darum ist der Pointer Typ wichtig. 
-Es ist keine Arithmetik auf einen Voidpointer möglich.\\
-Pointer darf man auch mit anderen Pointer vergleichen(==, !=,...).
+Es ist keine Arithmetik auf einen Voidpointer möglich.
+
+Pointer darf man auch mit anderen Pointer vergleichen (==, !=,...).
 
 \nextcol
 
 \subsubsection{Memorymap}
 
 Eine Memorymap wird verwendet, um den Zustand von Pointer und Variablen zu signalisieren. 
-Das folgende Beispiel zeigt den Zustand von der Deklaration von \ref{Pointerbasics}.\\
+Das folgende Beispiel zeigt den Zustand von der Deklaration von Abschnitt\,\ref{Pointerbasics}.
 \begin{center}
     \ifthenelse{\boolean{svgWorks}}{
         \includesvg[width = 0.7\linewidth, inkscapelatex=false]{svg/Pointer_Memorymap.svg}    
@@ -123,13 +135,18 @@ Das folgende Beispiel zeigt den Zustand von der Deklaration von \ref{Pointerbasi
 
 \subsection{Deklarieren}
 
-Generelle Syntax : \verb|<Datentyp> <Variablenname>;|\\
-Erlaubte Zeichen sind Buchstaben, Ziffern und Underscore(\_). Eine Zahl darf nicht zu beginn stehen. Umlaute sind nicht erlaubt. Variablennamen sind \textbf{case sensitive!}\\
+Generelle Syntax : \verb|<Datentyp> <Variablenname>;|
+
+Erlaubte Zeichen sind Buchstaben, Ziffern und Underscore(\_). 
+Eine Zahl darf nicht zu beginn stehen. Umlaute sind nicht erlaubt. 
+Variablennamen sind \textbf{case sensitive!}
+
 Beispiele:
 
 \lstinputlisting{code/deklaration.c}
 
-Es gibt Namen, die nicht erlaubt sind, da sie vom C Standard reserviert sind. Diese sind:\\
+Es gibt Namen, die nicht erlaubt sind, da sie vom C Standard reserviert sind. 
+Diese sind:
 
 {\tabcolsep=0.1cm
 \resizebox{\columnwidth}{!}{%
@@ -148,8 +165,10 @@ unsigned         & void            & volatile  & while     & \_alignas   & \_ali
 
 \subsection{Umwandeln}
 
-Es gibt die implizite und explizite Umwandlung. Implizit erledigt der Compiler da er selbst ein missmatch von Typen erkennt $\rightarrow$ schlecht da es eine Warnung erzeugt.\\
-Explizit wird durch Schreiben des Typs neben der umzuwandelnden Zahl erreicht.
+Es gibt die implizite und explizite Umwandlung. 
+Implizit erledigt der Compiler da er selbst ein missmatch von Typen erkennt $\rightarrow$ schlecht da es eine Warnung erzeugt.
+
+Explizit wird Umwandeln durch Schreiben des Zieltyps in Klammern neben der umzuwandelnden Zahl erreicht.
 
 \lstinputlisting{code/umwandeln.c}
 
@@ -157,6 +176,8 @@ Explizit wird durch Schreiben des Typs neben der umzuwandelnden Zahl erreicht.
 
 \subsection{Scope}
 
+Der Scope beschreibt die Sichtbarkeit von Variabeln. 
+Unterschieden wird:
 \begin{itemize}[itemsep=1pt, parsep=0pt]
     \item \textbf{global} \\ nicht in einer Funktion deklariert, 0 initialisiert, Laufzeit des Programms, immer sichtbar
     \item \textbf{lokal} \\ in Funktion deklariert, nicht initialisiert, Laufzeit der Funktion, nur in der Funktion Sichtbar, auch wenn eine neue Funktion aufgerufen wird
@@ -166,8 +187,8 @@ Explizit wird durch Schreiben des Typs neben der umzuwandelnden Zahl erreicht.
 \subsection{Arrays}
 
 Ein Array bietet eine kompakte Zusammenfassung von mehreren Variablen des gleichen Basistyps. 
-Array Nummerierung beginnen immer bei 0! 
-Sie sind so lang wiebei der Deklarierung definiert. 
+Array Nummerierung \textbf{beginnen immer bei 0}. 
+Sie sind so lang wie bei der Deklarierung definiert. 
 
 \lstinputlisting{code/array_basics.c}
 
@@ -179,19 +200,22 @@ Man kann ein Array entweder komplett oder gar nicht initialisieren.
 
 \subsubsection{Char Arrays}
 
-Mit Char Arrays werden Zeichenketten realisiert. Char Arrays müssen immer NULL('\textbackslash 0') terminiert werden, wenn mit diesen Standardfunktionen zur Char Array Verarbeitung verwendet werden. Die Nullterminierung wird verwendet, um zu wissen wann die Zeichenkette fertig ist.
+Mit Char Arrays werden Zeichenketten realisiert. 
+Char Arrays müssen immer NULL('\textbackslash 0') terminiert werden, wenn mit diesen Standardfunktionen zur Char Array Verarbeitung verwendet werden. 
+Die Nullterminierung wird verwendet, um zu wissen, wann die Zeichenkette fertig ist.
 
 \lstinputlisting{code/array_char.c}
 
 \subsubsection{Memorymap}
 
-Das Format der Memorymap für Arrays sieht folgendermassen aus:\\
+Das Format der Memorymap für Arrays sieht folgendermassen aus:
 
+\vspace{2mm}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 Wert 0&Wert 1& Wert 2& Wert 3&Wert 4\\ \hline
 \end{tabular}
-\\
+\vspace{2mm}
 
 Unter den jeweiligen Werten muss die Element Nummer Stehen.
 
@@ -199,14 +223,18 @@ Unter den jeweiligen Werten muss die Element Nummer Stehen.
 
 \subsubsection{Handhabung von Arrays}
 
-Arrays können nicht direkt miteinander verglichen werden, in Funktionen direkt übergeben werden oder direkt auf ein anderes überspielt werden (memcpy kann verwendet werden).\\
+Arrays können nicht direkt miteinander verglichen werden, in Funktionen direkt übergeben werden oder direkt auf ein anderes überspielt werden (\textbf{memcpy} implementiert solch eine Funktion).
+
 Bei einem Funktionsaufruf wird ein Pointer auf das erste Element des Arrays übergeben.
 
 \subsubsection{Mehrdimensionale Arrays}
 
-Mehrdimensionale Arrays können so verstanden werden das ein Array Element wieder ein ganzes Array enthaltet.\\
-Bei einem 2D Array kann man sich eine Matrix vorstellen, wobei beim Aufruf [Zeile][Spalte] mitgegeben wird.\\
-Definition eines mehrdimensionalen Arrays:\\
+Mehrdimensionale Arrays können so verstanden werden das ein Array Element wieder ein ganzes Array enthaltet.
+
+Bei einem 2D Array kann man sich eine Matrix vorstellen, wobei beim Aufruf [Zeile][Spalte] mitgegeben wird.
+
+Definition eines mehrdimensionalen Arrays:
+
 \noindent
 \begin{minipage}{0.5\columnwidth}
 \lstinputlisting{code/mehrdim_array.c}
@@ -237,19 +265,23 @@ Eine String Definition kann auch so erfolgen:
 
 \lstinputlisting{code/array_pointer_char.c}
 
-\subsection{Typ-attribute}
-
+\subsection{Typ-Attribute}
+Typ-Attribute definieren spezielles Variablen verhalten.
 \subsubsection{const}
 
-Das Attribut const (vor dem Variablentyp geschrieben) markiert eine Variable als read only für den Quellcode, die Hardware kann aber dennoch den Wert verändern.\\
-Ein Const Array besteht nur aus konstanten.\\
-Für ein konstanten Pointer muss const nach dem * stehen. Sonst ist nur der Wert auf den der Pointer zeigt read only. 
+Das Attribut const (vor dem Variablentyp geschrieben) markiert eine Variable als read only für den Quellcode, die Hardware kann aber dennoch den Wert verändern.
+
+Ein Const Array besteht nur aus konstanten.
+
+Für einen konstanten Pointer muss const nach dem * stehen. 
+Sonst ist nur der Wert, auf den der Pointer zeigt read only. 
 
 \lstinputlisting{code/typatribute.c}
 
-Um sicherzugehen was wirklich konstant ist kann die Definition von rechts nach links gelesen werden. Was links neben einem const steht ist wirklich const.\\
+Um sicherzugehen, was wirklich konstant ist, kann die Definition von rechts nach links gelesen werden. 
+Was links neben einem const steht, ist wirklich const.
 
-In Funktionsköpfen lohnt es sich const als Sicherheit einzubauen, so das nicht versehentlich eine variable geschrieben wird.
+In Funktionsköpfen lohnt es sich const, als Sicherheit einzubauen, so das nicht versehentlich eine variable geschrieben wird.
 
 \lstinputlisting{code/funktionskopf.c}
 
@@ -261,16 +293,18 @@ Volatile signalisiert dem Compiler das sich die Variable auch ausserhalb der nor
 
 Static kann eine Variabel und eine Funktion sein, diese haben aber jeweils verschiedene Bedeutungen:
 \begin{itemize}
-    \item Globale Variabel oder Funktion:\\
+    \item \textbf{Globale Variabel oder Funktion}\\
     Sie sind nur in der Compile Unit gültig in der sie definiert sind.
-    \item lokale Variabel:\\
+    \item \textbf{lokale Variabel}\\
     haben dieselbe \textbf{Lebensdauer wie eine Globale Variabel}, Sichtbarkeit auf Funktionsblock beschränkt und mit 0 oder einer konstanten  einmalig initialisiert. 
 \end{itemize}
 
 \subsection{Structs}
 
-Mittels Struct kann man verschiedene Datentypen zu einem Typ zusammenführen. Auch Structs kann man in einen anderen Struct verwenden.\\
+Mittels Struct kann man verschiedene Datentypen zu einem Typ zusammenführen. 
+Auch Structs kann man in einen anderen Struct verwenden.
 
+\vspace{2mm}
 \noindent
 \begin{minipage}{0.5\columnwidth}
 Definition:
@@ -288,22 +322,28 @@ Das Beispiel verwendet Deklarationen von oben
 \lstinputlisting{code/struc_pointer.c}
 \subsubsection{Grösse}
 
-Die Grösse eines Struct ist nicht immer die Summe aller Typen. Aufgrund von Hardwarelimitationen (Alignment) können padding bytes in der Struct eingesetzt werden welche einfach leer sind. Daher kann man die wirkliche Grösse nur durch sizeof herausfinden.
+Die Grösse eines Struct ist nicht immer die Summe aller Typen. 
+Aufgrund von Hardwarelimitationen (Alignment) können padding bytes in der Struct eingesetzt werden welche einfach leer sind. 
+Daher kann man die wirkliche Grösse nur durch sizeof herausfinden.
 
 \subsubsection{Funktionen}
 
-Funktionsaufrufparameter und Funktionsreturns können Structs sein. Allerdings ist dies nicht effizient und eine Übergabe des Pointers wäre besser da in diesem Fall auch Arrays direkt üergeben werden.
+Funktionsaufrufparameter und Funktionsreturns können Structs sein. 
+Allerdings ist dies nicht effizient und eine Übergabe des Pointers wäre besser da in diesem Fall auch Arrays direkt übergeben werden.
 
 \subsection{Union}
 
-Unions haben eine identische Syntax wie Structs, allerdings teilen \textbf{alle} Elemente den \textbf{selben} Speicherbereich. Man kann es verwenden, um z.B. einfacher an die einzelnen Bytes einer IpV4 Adresse zu kommen.
+Unions haben eine identische Syntax wie Structs, allerdings teilen \textbf{alle} Elemente den \textbf{selben} Speicherbereich.
+Man kann es verwenden, um z.B. einfacher an die einzelnen Bytes einer IPv4 Adresse zu kommen.
 
 \lstinputlisting{code/union.c}
 
 \subsection{typedef}
 
-Man kann sich auch eigene Typennamen erstellen mit typedef.\\
-syntax : \verb|typedef  <Typ> <Name des neuen typ>|\\
-stdint.h verwendet dies. 
+Man kann sich auch eigene Typennamen erstellen mit typedef.
+
+\textbf{Syntax} : \verb|typedef  <Typ> <Name des neuen typ>|
+
+\textbf{stdint.h} verwendet dies. 
 Auch sehr nützlich um das Schlüsselwort Enum/Struct zu sparen. 
 \lstinputlisting{code/typdef.c}

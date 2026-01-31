@@ -6,9 +6,9 @@
 Designer : Dennis Ritchie \\
 Erstveröffentlichung : 1972
 
-\subsection{Rechnersystem system}
+\subsection{Rechnersystem}
 
-Grundaufbau eines Rechnersystem:
+Grundaufbau eines Rechnersystems:
 \begin{center}
     \ifthenelse{\boolean{svgWorks}}{
         \includesvg[width =\linewidth, inkscapelatex=false]{svg/PC_system_basics.svg}    
@@ -19,10 +19,10 @@ Grundaufbau eines Rechnersystem:
 
 \begin{center}
     \begin{tabular}{|c|c|c|} \hline  
-        Grösse & Genauer Wert & näherungswert \\ \hline  
-        Kilobyte & $2^{10}$ Bytes = 1024 Bytes & $10^3$ Bytes \\ \hline  
-        Megabyte & $2^{20}$ Bytes = 1024 KB & $10^6$ Bytes \\ \hline  
-        Gigabyte & $2^{30}$ Bytes = 1024 MB & $10^9$ Bytes \\ \hline 
+        Grösse        & Genauer Wert                & näherungswert \\ \hline  \rule{0pt}{2.5ex}
+        Kilobyte (KB) & $2^{10}$ Bytes = 1024 Bytes & $10^3$ Bytes  \\ \hline  \rule{0pt}{2.5ex}
+        Megabyte (MB) & $2^{20}$ Bytes = 1024 KB    & $10^6$ Bytes  \\ \hline  \rule{0pt}{2.5ex}
+        Gigabyte (GB) & $2^{30}$ Bytes = 1024 MB    & $10^9$ Bytes  \\ \hline 
     \end{tabular}
 \end{center}
 
@@ -32,14 +32,14 @@ Die CPU kann $(2^{\text{Bitgrösse des Busses }} \cdot \text{ 8 bits})$ Ansteuer
 
 \subsubsection{Binär direkt}
 
-Binär kann mittels 2er Potenz berechnet werden(geht auch bei Kommazahlen)\\
+Binär kann mittels 2er Potenz berechnet werden (geht auch bei Kommazahlen) Beispiel :
 
 \noindent
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-\hline
+\hline \rule{0pt}{2.5ex}
 Gewichte: & \(2^7\) & \(2^6\) & \(2^5\) & \(2^4\) & \(2^3\) & \(2^2\) & \(2^1\) & \(2^0\) \\
-\hline
-Bitmuster: & 1 & 0 & 1 & 0 & 0 & 1 & 1 & 0 \\
+\hline \rule{0pt}{2.5ex}
+Bitmuster: & 1 & 0 & 1 & 0 & 0 & 1 & 1 & 0 \\ 
 \hline
 \end{tabular}
 
@@ -55,18 +55,18 @@ Bitmuster: & 1 & 0 & 1 & 0 & 0 & 1 & 1 & 0 \\
 
 Das Zweierkomplement erlaubt das Darstellen von negativen Zahlen. Das MSB hat dabei den üblichen Wert negativ.\\ 
 Um von Binär zum Zweierkomplement zu kommen, muss man alle Bits einer binär zahl invertieren und 1 addieren
-
 \[
 \overbrace{0110}^\text{6} 
-\underbrace{\rightarrow}_\text{invert}
+\xrightarrow{\text{invert}}
 \overbrace{1001}^\text{-7} 
-\underbrace{\rightarrow}_{+1}
+\xrightarrow{+1}
 \overbrace{1010}^\text{-6} 
 \]
 \subsubsection{ASCII}
 
 \textbf{A}merican \textbf{S}tandard \textbf{C}ode for \textbf{I}nformation \textbf{I}nterchange standardisiert die Repräsentation eines Bytes als Char. 
-Da ASCII ein 7-bit Code ist, ist das MSB immer 0.\\
+Da ASCII ein 7-bit Code ist, ist das MSB immer 0.
+\vspace{2mm}
 
 {\tabcolsep=0.05cm
 \renewcommand*{\arraystretch}{0.5}
@@ -133,20 +133,27 @@ Typischerweise mit 0 vor Beginn der Zahl.
 
 \subsubsection{Hexadezimal}
 
-Hexadezimal erlaubt 16 Ziffern(0-9,A-F). Binär stellen 4 Bits eine Hex Zahl dar.
+Hexadezimal erlaubt 16 Ziffern (0 - 9, A - F). 
+Binär stellen 4 Bits eine Hex Zahl dar.
 \[
 \overbrace{1100}^\text{C} 
 \overbrace{0101}^\text{5} 
 \rightarrow \text{0xC5}
 \]
 
-Schreibweisen: $\text{C5}_{\text{h}}$, C5H, $\text{C5}_{\text{hex}}$, $\text{C5}\$$, 0xC5\\
+Schreibweisen: $\text{C5}_{\text{h}}$, C5H, $\text{C5}_{\text{hex}}$, $\text{C5}\$$, 0xC5
+
 Typischerweise mit 0x vor Beginn der Zahl.
 
 \subsubsection{Umrechnung beliebiges Zahlensystem zu dezimal}
 
-Die jeweiligen Ziffern stellen jeweils ein Zahlenwert im System:\\ $n^0 \cdot x_1 + n^1 \cdot x_2 + n^2 \cdot x_3 + ....$ wobei n die Zahlenbasis ist.
+Die jeweiligen Ziffern stellen jeweils ein Zahlenwert im System:
+
+$n^0 \cdot x_1 + n^1 \cdot x_2 + n^2 \cdot x_3 + ....$ wobei n die Zahlenbasis ist.
 
 \subsubsection{Umrechnung dezimal zu beliebigem Zahlensystem}
 
-Die umzurechnende Zahl muss durch die Zahlenbasis mit Rest dividiert werden. Der Rest ist dann die erste Ziffer der entstehenden Zahl. Der erhaltene Quotient muss erneut dividiert werden und man erhält dann die folgenden Ziffern. Wenn der Quotient 0 erreicht hat, ist die Umrechnung fertig. 
+Die umzurechnende Zahl muss durch die Zahlenbasis mit Rest dividiert werden. 
+Der Rest ist dann die erste Ziffer der entstehenden Zahl. 
+Der erhaltene Quotient muss erneut dividiert werden und man erhält dann die folgenden Ziffern. 
+Wenn der Quotient 0 erreicht hat, ist die Umrechnung fertig. 

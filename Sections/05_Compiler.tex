@@ -1,13 +1,19 @@
 \section{Compiler}
-Der Compiler übersetzt den Quellcode zu Machinecode welcher durch das Zielsystem ausführbar ist.
+Der Compiler übersetzt den Quellcode zu Maschinencode welcher durch das Zielsystem ausführbar ist.
 \subsection{Molularisierung}
 
-Der gesamte Code wird auf mehrere Module aufgeteilt, um die Übersichtlichkeit und Wiederverwendbarkeit zu verbessern. Ein Modul besteht in der Regel aus einer .h- und einer .c-Datei.\\
-Die Schnittstelle des Moduls wird in der .h-Datei (Header) definiert und dokumentiert. Sie enthält: Prototypen für alle Funktionen, welche die Schnittstelle nach aussen bilden, Dokumentation wie diese Funktionen benutzt werden, structs, enums, unions, typedef, Präprozessormakros. Die Implementationen sind in der .c Datei
+Der gesamte Code wird auf mehrere Module aufgeteilt, um die Übersichtlichkeit und Wiederverwendbarkeit zu verbessern. 
+Ein Modul besteht in der Regel aus einer .h- und einer .c-Datei.
+
+Die Schnittstelle des Moduls wird in der .h-Datei (Header) definiert und dokumentiert. 
+Sie enthält: Prototypen für alle Funktionen, welche die Schnittstelle nach aussen bilden, Dokumentation wie diese Funktionen benutzt werden, structs, enums, unions, typedef, Präprozessormakros. 
+Die Implementationen sind in der .c Datei
 
 \subsubsection{Information hiding}
 
-Information hiding bedeutet: nur so viele Informationen nach Aussen geben wie nötig. Daher globale Variablen sparsam verwenden. Diese Strategie macht Code sicherer und weniger fehleranfällig.
+Information hiding bedeutet: nur so viele Informationen nach Aussen geben wie nötig. 
+Daher globale Variablen sparsam verwenden. 
+Diese Strategie macht Code sicherer und weniger fehleranfällig.
 
 \subsubsection{Richtiges Inkludieren}
 
@@ -17,7 +23,7 @@ Information hiding bedeutet: nur so viele Informationen nach Aussen geben wie n�
 \end{lstlisting}
 
 
-Um mehrfachincludes zu verhindern, gibt es sogenannte Includeguards
+Um Mehrfachincludes zu verhindern, gibt es sogenannte \textbf{Includeguards}
 \begin{lstlisting}[language = c]
 #ifndef switch_h
 #define switch_h
@@ -29,7 +35,7 @@ Um mehrfachincludes zu verhindern, gibt es sogenannte Includeguards
 
 \subsection{Build Prozess}
 
-Der Build Prozess erzeugt ein ausführbares Programm und besteht wesentlich aus :
+Der Build Prozess erzeugt ein ausführbares Programm und besteht wesentlich aus:
 \begin{itemize}[itemsep=1pt, parsep=0pt]
     \item jede .c-Datei compilieren (erzeugt .o Dateien)
     \item jede erzeugte .o-Datei linken
@@ -38,8 +44,9 @@ Der Build Prozess erzeugt ein ausführbares Programm und besteht wesentlich aus 
 
 \subsection{Präprozessor}
 
-Der Präprozessor kann einfache Textersetzung machen und so z.B. konstanten einsetzen.\\
-Wichtige makros sind dabei:
+Der Präprozessor kann einfache Textersetzung machen und so z.B. konstanten einsetzen.
+
+Wichtige Makros sind dabei:
 
 \lstinputlisting{code/preprocessor.c}
 
@@ -47,17 +54,19 @@ Allerdings sind solche Präprozessormakrofunktionen sehr fehleranfällig da sie 
 
 \subsection{inline}
 
-Das Schlüsselwort inline ermöglicht es dem Compiler, den Funktionsaufruf komplett wegzuoptimieren. Es gibt jedoch keine Garantie, dass er dies auch tut! Es wird häufig zusammen mit static verwendet.\\
+Das Schlüsselwort \textbf{inline} ermöglicht es dem Compiler, den Funktionsaufruf komplett wegzuoptimieren. 
+Es gibt jedoch keine Garantie, dass er dies auch tut! Es wird häufig zusammen mit static verwendet.
 
 \lstinputlisting{code/inline.c}
 
-Das Beispiel hat die selbe Funktion wie die des Präprozessors, allerdings ohne Potenzial für undefined behaviour.
+Das Beispiel hat dieselbe Funktion wie die des Präprozessors, allerdings ohne Potenzial für undefined behaviour.
 
 \subsection{Anwendung des compilers}
 
-Es wird angenommen das clang verwendet wird:\\
+\textit{Es wird angenommen das clang verwendet wird:}
 
-Ein beispielhafter compilvorgang wäre:\\
+Ein beispielhafter Compilvorgang wäre:
+
 \verb|clang -Wall -o test test.c|
 
 \subsubsection{Clang flags}

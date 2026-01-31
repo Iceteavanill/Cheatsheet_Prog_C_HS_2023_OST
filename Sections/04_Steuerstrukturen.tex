@@ -3,7 +3,7 @@
 
 \subsection{basics}
 
-Die Wichtigen Steuerstrukturen in einer Auflistung.
+Die wichtigen Steuerstrukturen in einer Auflistung.
 
 \lstinputlisting{code/steuerstrukturen_basics.c}
 
@@ -18,18 +18,24 @@ Die Wichtigen Steuerstrukturen in einer Auflistung.
 
 \subsubsection{GoTo}
 
-Ein mit einem goto kann man \textbf{innerhalb einer Funktion} zu einer Marke Springen. Das kann sehr komfortabel sein, führt aber fast immer zu sehr schwer lesbaren Code. Möglichst nie verwenden.\\
+Ein \textbf{goto} kann man \textbf{innerhalb einer Funktion} zu einer Marke Springen. 
+Das kann sehr komfortabel sein, führt aber fast immer zu sehr schwer lesbaren Code. 
+Daher möglichst nie verwenden.
 Ein Beispiel:
 
 \lstinputlisting{code/goto.c}
 
 \subsection{Funktionen}
 
-Funktionen sind eine Zusammenfassung von Anweisungen, welche ein und Ausgabewerte haben können.\\
-Deklaration:\\
-\verb|<returnType> <functionName>(<paramType1> <paramName1>,|\\
-\verb| <paramType2> <paramName2>, …);|\\
-Wenn eine Funktion aufgerufen wird, müssen immer \textbf{alle} Parameter mitgegeben werden.\\
+Funktionen sind eine Zusammenfassung von Anweisungen, welche Ein- und Ausgabewerte haben können.
+
+Deklaration:
+
+\verb|<returnType> <functionName>(<paramType1> <paramName1>,|
+
+\verb| <paramType2> <paramName2>, …);|
+
+Wenn eine Funktion aufgerufen wird, müssen immer \textbf{alle} Parameter mitgegeben werden.
 
 \subsubsection{Funktionsprototyp}
 
@@ -38,8 +44,8 @@ Der Funktionsprototyp legt das Interface der Funktion fest.
 Er \textbf{muss} verwendet werden, wenn die Funktion vor Definition verwendet werden möchte.
 
 \begin{lstlisting}[language = c]
-int myFunc(int input1, int input2,...);//Funktionsprototyp
-int myfunc(int input1)//direkte definition
+int myFunc(int input1, int input2,...); //Funktionsprototyp
+int myfunc(int input1)                  //direkte definition
 {
     return 0;
 }
@@ -48,8 +54,10 @@ Der Parametername kann zwischen Prototyp und Definition unterschiedlich sein, is
 
 \subsubsection{Void}
 
-Void als Returntyp heisst das kein Wert zurückgegeben wird.\\
-Return darf verwendet werden, aber es darf kein Wert hinterlegt werden.\\
+Void als Returntyp heisst das kein Wert zurückgegeben wird.
+
+Return darf verwendet werden, aber es darf kein Wert hinterlegt werden.
+
 Void als Parameter heisst das kein Parameter übergeben werden kann.
 
 \nextcol
@@ -57,7 +65,7 @@ Void als Parameter heisst das kein Parameter übergeben werden kann.
 \subsection{Pointer auf Funktionen}
 
 Pointer können auch auf Funktionen definiert werden zum z.B. zur Laufzeit dynamische Programmabläufe zu realisieren.\\
-Syntax: int (*name)(int,int);
+Syntax: \verb|int (*name)(int,int);|
 
 \begin{itemize}[itemsep=1pt, parsep=0pt]
     \item \textbf{int} : Return Typ der funktion
@@ -73,27 +81,28 @@ bsp:
 \subsection{Funktionen : Iteration und Rekursion}
 
 \begin{itemize}[itemsep=1pt, parsep=0pt]
-    \item Rekursion: eine Funktion ruft sich selbst auf.
-    \item Iteration: Algorithmus enthält Abschnitte, die innerhalb einer Ausführung mehrfach durchlaufen werden (Schleife)
-    \item Die rekursive Form kann eleganter sein, ist aber praktisch immer ineffizienter als die iterative Form.
-    \item Das Abbruchkriterium ist bei beiden Formen zentral
+    \item \textbf{Rekursion:} eine Funktion ruft sich selbst auf.
+    \item \textbf{Iteration:} Algorithmus enthält Abschnitte, die innerhalb einer Ausführung mehrfach durchlaufen werden (Schleife).
+    \item Die rekursive Form kann eleganter sein, ist aber \textbf{praktisch immer ineffizienter} als die iterative Form.
+    \item Das \textbf{Abbruchkriterium} ist bei beiden Formen \textbf{zentral}
 \end{itemize}
 
 \subsubsection{Anwendungen}
 \begin{itemize}[itemsep=1pt, parsep=0pt]
-
     \item Backtracking-Algorithmen z.B. Finden eines Weges durch ein Labyrinth (zurück aus Sackgasse und neuen Weg prüfen)
     \item Implementierung rekursiv definierter mathematischer Funktionen (z.B. Fakultätsfunktion)
     \item \textbf{Achtung}: der Speicherbedarf ist bei Rekursion schwer abzuschätzen. Rekursive Funktionen sind deshalb insbesondere bei der Embedded Programmierung zu vermeiden.
-    \item \textbf{Achtung}:jede Instanz einer rekursiv gerufenen Funktion besitzt ihre eigenen, unabhängigen Variablenkopien. Ausnahme: static-deklarierte lokalen Variablen
-    \item Indirekte Rekursion ist unbedingt zu vermeiden Diese kommt z.B. zustande, wenn sich zwei oder mehrere Funktionen wechselseitig oder im Kreis aufrufen
+    \item \textbf{Achtung}: jede Instanz einer rekursiv gerufenen Funktion besitzt ihre eigenen, unabhängigen Variablenkopien. Ausnahme: static-deklarierte lokalen Variablen
+    \item Indirekte Rekursion ist unbedingt zu vermeiden. Diese kommt z.B. zustande, wenn sich zwei oder mehrere Funktionen wechselseitig oder im Kreis aufrufen
 \end{itemize}
 
 \nextcol
 
 \subsubsection{Beispiel}
 
-Hier diese Folgenden Funktionen berechnen beide die Fakultät einer Zahl.\\
+Hier diese Folgenden Funktionen berechnen beide die Fakultät einer Zahl.
+
+\vspace{2mm}
 
 \noindent
 \begin{minipage}[t]{0.5\columnwidth}
@@ -129,40 +138,41 @@ uint64 fak(uint64 n)
 \subsection{Operatoren}
 
 Operatoren haben eine Priorität, welche aussagt in welcher Reihenfolge die Befehle ausgeführt werden. 
-Von höchster Priorität zu niedrigster.\\
-Haben Operatoren dieselbe Priorität besagt die Assoziativität in welcher Reihenfolge ausgewertet wird.\\
+Von höchster Priorität(1) zu niedrigster(15).
 
+Haben Operatoren dieselbe Priorität besagt die Assoziativität in welcher Reihenfolge ausgewertet wird.
 
+\vspace{2mm}
 {\tabcolsep=0.05cm
 \resizebox{\columnwidth}{!}{%
 \begin{tabular}{|c|l|l|c|}
 \hline
 \textbf{Priorität}  & \textbf{Symbol}         & \textbf{Bedeutung}          & \textbf{Assoziativität} \\ \hline
-\multirow{5}{*}{15} & (Postfix)  $++\quad--$  & Postfix-Ink/dekrement       & \multirow{5}{*}{L - R}  \\
+\multirow{5}{*}{1}  & (Postfix)  $++\quad--$  & Postfix-Ink/dekrement       & \multirow{5}{*}{L - R}  \\
                     & ()                      & Funktionsaufruf             &                         \\
                     & $[\hspace{0.5em}]$      & Indexierung                 &                         \\
                     & $->\quad.$              & Elementzugriff              &                         \\
                     & (Typ)\{init list\}      & compound literal (C99)      &                         \\ \hline
-\multirow{7}{*}{14} & $++\quad--$(Präfix)     & Präfix-Ink/dekrement        & \multirow{7}{*}{R - L}  \\
+\multirow{7}{*}{2}  & $++\quad--$(Präfix)     & Präfix-Ink/dekrement        & \multirow{7}{*}{R - L}  \\
                     & $+\quad-$ (Vorzeichen)  & Vorzeichen                  &                         \\
                     & $!\quad\sim$            & logisches / bitweises NICHT &                         \\
                     & \&                      & Adresse                     &                         \\
                     & *                       & Zeigerdereferenzierung      &                         \\
                     & (Typ)                   & Typumwandlung(cast)         &                         \\
                     & sizeof                  & Speichergröße               &                         \\ \hline
-\multirow{2}{*}{13} & $*\quad/$               & Multiplikation, division    & \multirow{2}{*}{L - R}  \\
+\multirow{2}{*}{3}  & $*\quad/$               & Multiplikation, division    & \multirow{2}{*}{L - R}  \\
                     & \%                      & Modulo                      &                         \\ \hline
-12                  & $\quad-$                & Addition, Subtraktion       & L - R                   \\ \hline
-11                  & \textless{}\textless{}  & Links/rechts-Shift          & L - R                   \\ \hline
-10                  & $<\quad<=\quad>=\quad>$ & kleiner / grösser (gleich)  & L - R                   \\ \hline
-9                   & $!=\quad==$             & (un)gleich                  & L - R                   \\ \hline
+4                   & $\quad-$                & Addition, Subtraktion       & L - R                   \\ \hline
+5                   & \textless{}\textless{}  & Links/rechts-Shift          & L - R                   \\ \hline
+6                   & $<\quad<=\quad>=\quad>$ & kleiner / grösser (gleich)  & L - R                   \\ \hline
+7                   & $!=\quad==$             & (un)gleich                  & L - R                   \\ \hline
 8                   & \&                      & bitweises UND               & L - R                   \\ \hline
-7                   & \textasciicircum{}      & bitweises exklusives ODER   & L - R                   \\ \hline
-6                   & $\vert$                 & bitweises ODER              & L - R                   \\ \hline
-5                   & \&\&                    & logisches UND               & L - R                   \\ \hline
-4                   & $\vert\vert$            & logisches ODER              & L - R                   \\ \hline
-3                   & ?:                      & Bedingung /mini if          & R - L                   \\ \hline
-\multirow{3}{*}{2}  & =                       & Zuweisung                   & \multirow{3}{*}{R - L}  \\
+9                   & \textasciicircum{}      & bitweises exklusives ODER   & L - R                   \\ \hline
+10                  & $\vert$                 & bitweises ODER              & L - R                   \\ \hline
+11                  & \&\&                    & logisches UND               & L - R                   \\ \hline
+12                  & $\vert\vert$            & logisches ODER              & L - R                   \\ \hline
+13                  & ?:                      & Bedingung /mini if          & R - L                   \\ \hline
+\multirow{3}{*}{14} & =                       & Zuweisung                   & \multirow{3}{*}{R - L}  \\
                     & 
                     \begin{tabular}{ccccc} 
                         *= & /= & \%= & += & -=\\ 
@@ -173,7 +183,7 @@ Haben Operatoren dieselbe Priorität besagt die Assoziativität in welcher Reihe
                     \begin{tabular}{ccccc}
                         \&= & \textasciicircum{}= & $\vert$= & \textless{}\textless{}= & \textgreater{}\textgreater{}= \\ 
                     \end{tabular} &  & \\ \hline
-1                    & ,                      & Komma-Operator              & L - R                  \\ \hline
+15                   & ,                      & Komma-Operator              & L - R                  \\ \hline
 \end{tabular}%
 }
 } 

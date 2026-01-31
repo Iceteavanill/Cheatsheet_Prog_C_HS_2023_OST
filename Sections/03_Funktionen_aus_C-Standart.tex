@@ -1,44 +1,64 @@
 \section{Funktionen aus  C Standard-Library}
-\subsubsection{Overview String Funktionen}
-Es gibt Funktionen aus der String Library welche mit 'str' beginnen. Diese erwarten eine NULL terminierte Zeichenkette. Ein anderer Typ Funktionen beginnt mit 'mem'. Bei diesen muss die Länge mitgegeben werden.\\
-Ebenso gibt es für die String Funktionen einen Typ, der alle Zeichen bearbeitet oder der nur n Zeichen bearbeitet.
+Einige gängige Programmierprobleme wurden bereits durch die \textbf{C Standard-Library} gelöst.
+
+\subsubsection*{Overview String Funktionen}
+Es gibt Funktionen aus der String Library welche mit 'str' beginnen. 
+Diese erwarten eine \textbf{NULL} terminierte Zeichenkette. 
+Ein anderer Typ Funktionen beginnt mit 'mem'. 
+Bei diesen muss die Länge mitgegeben werden.
+
+Ebenso gibt es für String Funktionen eine Version, die alle Zeichen bearbeitet oder nur n Zeichen bearbeitet.
 
 \subsection{scanf}
 
-Header \verb|<stdio.h>| wird verwendet.\\
-Scanf wird verwendet, um Eingaben des Nutzers entgegenzunehmen.\\
-Syntax : \verb|scanf(%<Format Spzifizierung>, <Pointer zu Speicher>);|\\
+Header \verb|<stdio.h>| wird verwendet.
+
+Scanf wird verwendet, um Eingaben des Nutzers entgegenzunehmen.
+
+Syntax : \verb|scanf(%<Format Spzifizierung>, <Pointer zu Speicher>);|
+
 Es können auch mehrere eingaben aufs mal gemacht werden.
 
 \subsubsection{Formatspezifierer}
 
-Die Eingaben können verschieden interpretiert werden. Es gibt verschiedene Möglichkeiten dazu. Sie fangen immer mit einem \% begonnen.\\
+Die Eingaben können verschieden interpretiert werden. 
+Es gibt verschiedene Möglichkeiten dazu. Sie fangen immer mit einem \% begonnen.
 
-\begin{center}
-    \begin{tabular}{|c|c|c|} \hline  
-          \%c& \%s& \%d\\ \hline  
-        ein char& eine Zeichenkette& Signed int\\
- & &in dezimaldarstellung\\\hline\hline
- \%u& \%o&\%x\\\hline
- unsigned int& unsigned int&unsigned int\\
-  in dez darstellung& in okt darstellung&in hex darstellung\\\hline\hline
- \%f& \%lf&\\\hline
- float& double&\\ \hline
-    \end{tabular}
-\end{center}
-Mit vorangestelltem l oder ll gibt man Datentypen länger als int an, z.B. \%llu für einen unsigned long long in Dezimaldarstellung.\\
-Mit vorangestelltem h oder hh gibt man Datentypen kürzer als int an, z.B. \%hhx für einen unsigned char in Hexadezimaldarstellung.\\
+\vspace{2mm}
+\begin{minipage}{0.5\columnwidth}
+\begin{itemize}
+  \item[\textbf{\%c}] ein char
+  \item[\textbf{\%s}] eine Zeichenkette
+  \item[\textbf{\%d}] Signed int in dezimaldarstellung
+  \item[\textbf{\%u}] unsigned int in dez darstellung
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\columnwidth}
+\begin{itemize}
+  \item[\textbf{\%o}] unsigned int in okt darstellung
+  \item[\textbf{\%x}] unsigned int in hex darstellung
+  \item[\textbf{\%f}] float
+  \item[\textbf{\%lf}] double
+\end{itemize}
+\end{minipage}
+\vspace{2mm}
 
-Wenn Zahlen zwischen \% und Formatspezifierer geschrieben werden dann kann die Länge limitiert werden\\
-bsp:
+Mit \textbf{vorangestelltem l oder ll} gibt man Datentypen länger als int an, z.B. \%llu für einen unsigned long long in Dezimaldarstellung.
+
+Mit \textbf{vorangestelltem h oder hh} gibt man Datentypen kürzer als int an, z.B. \%hhx für einen unsigned char in Hexadezimaldarstellung.
+
+Wenn Zahlen zwischen \% und Formatspezifierer geschrieben werden dann kann die Länge limitiert werden
 
 \lstinputlisting{code/scanf.c}
 
 \subsection{printf}
 
-Header \verb|<stdio.h>| wird verwendet.\\
-Printf wird zur Ausgabe von Text per Konsole verwendet.\\
-General Syntax :\\ 
+Header \verb|<stdio.h>| wird verwendet.
+
+Printf wird zur Ausgabe von Text per Konsole verwendet.
+
+General Syntax :
+
 \verb|printf("<Text[mit formatspecs]>", <variablen zu Wert>);|
 
 \subsubsection{Formatspezifierer}
@@ -46,7 +66,8 @@ General Syntax :\\
 Auch hier gibt es Format Spezifizierer, Sie sind etwas anders als die von scanf. 
 Die wichtigsten (die in der Tabelle) sind dieselben wie bei scanf. 
 Der einzige Unterschied im jetzigen kontext ist das für double auch nur \%f ohne l verwendet werden kann. 
-Bei scanf \textbf{muss} es \%lf sein.\\
+Bei scanf \textbf{muss} es \%lf sein.
+
 Eine Zahl zwischen\% und Formatspezifierer bewirkt das \textbf{mindestens} die Anzahl Stellen ausgegeben wird. 
 Mit einem \say{.} und einer Zahl kann die Präzision spezifiziert werden. Standart bei Float \& double ist 6.
 
@@ -57,47 +78,55 @@ Mit einem \say{.} und einer Zahl kann die Präzision spezifiziert werden. Standa
 
 \subsection{memcomp}
 
-Header \verb|<string.h>| wird verwendet.\\
-Vergleicht, ob 2 Speicherstellen gleich sind und returnt 0 wenn diese gleich sind.
+Header \verb|<string.h>| wird verwendet.
+
+Vergleicht, ob 2 Speicherstellen gleich sind und gibt o zurück diese gleich sind.
 \begin{lstlisting}[language = c]
 int memcmp(const void *str1, const void *str2, size_t n)
 \end{lstlisting}
-Es darf nie mehr überprüft werden als das 1. Array gross ist. Das 2. Array darf grösser sein als das erste.
+Es darf nie mehr überprüft werden als das 1. Array gross ist. 
+Das 2. Array darf grösser sein als das erste.
 
 \subsection{strncpy}
 
-Header \verb|<string.h>| wird verwendet.\\
+Header \verb|<string.h>| wird verwendet.
+
 \begin{lstlisting}[language = c]
 char* strncpy(char* dest, const char* src, size_t n)
 \end{lstlisting}
-Kopiert n Zeichen zur Destination. strcpy macht das selbe aber kopiert alle Zeichen. 
+Kopiert n Zeichen zur Destination. 
+\textbf{strcpy} macht das selbe aber kopiert alle Zeichen. 
 
 \subsection{strncat}
 
-Header \verb|<string.h>| wird verwendet.\\
+Header \verb|<string.h>| wird verwendet.
+
 \begin{lstlisting}[language = c]
 char* strncat(char* dest, const char* src, size_t n);
 \end{lstlisting}
-Hängt Zeichen n von String src an dest(mit Nullterminierung) an. strcat macht dasselbe aber kopiert alle Zeichen. 
+Hängt Zeichen n von String src an dest (mit Nullterminierung) an. 
+\textbf{strcat} macht dasselbe aber kopiert alle Zeichen. 
 
 \subsection{strncmp}
 
-Header \verb|<string.h>| wird verwendet.\\
+Header \verb|<string.h>| wird verwendet.
+
 \begin{lstlisting}[language = c]
 int strncmp(const char* s1, const char* s2, size_t n);
 \end{lstlisting}
-Vergleicht Länge n von s1 und s2. Returnt 0 wenn beide gleich sind. strcpy macht dasselbe aber vergleicht alle Zeichen. 
+Vergleicht Länge n von s1 und s2. Returnt 0 wenn beide gleich sind. 
+\textbf{strcpy} macht dasselbe aber vergleicht alle Zeichen. 
 
 \subsection{strlen}
 
-Header \verb|<string.h>| wird verwendet.\\
+Header \verb|<string.h>| wird verwendet.
+
 \begin{lstlisting}[language = c]
 size_t strlen(const char* s);
 \end{lstlisting}
 Bestimmt die Länge des Strings. 
 
 \subsection{Mem Funktionen}
-Es gibt einige Mem funktionen die nützlich sein können
+Es gibt einige Mem funktionen die nützlich sein können:
 
 \lstinputlisting{code/memfuncs.c}
-
